@@ -1,4 +1,4 @@
-package egycsegomegbelefer.lyrics.modell;
+package egycsegomegbelefer.lyrics.domain;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

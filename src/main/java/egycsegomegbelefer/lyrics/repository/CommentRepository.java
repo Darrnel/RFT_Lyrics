@@ -1,7 +1,7 @@
 package egycsegomegbelefer.lyrics.repository;
 
 
-import egycsegomegbelefer.lyrics.modell.Comment;
+import egycsegomegbelefer.lyrics.domain.Comment;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

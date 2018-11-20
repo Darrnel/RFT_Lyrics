@@ -1,4 +1,4 @@
-package egycsegomegbelefer.lyrics.modell;
+package egycsegomegbelefer.lyrics.domain;
 
 import javax.persistence.*;
 import java.time.LocalDate;
