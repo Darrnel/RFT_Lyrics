@@ -9,7 +9,7 @@
 	<div id="topline"></div>
 	<div id="page_container">
 		<header id="header">
-					<div id="logo"><a href="index.html"><img src="logo.png"/></a></div>
+					<div id="logo"><a href="index.jsp"><img src="logo.png"/></a></div>
 					<div id="header_content">
 						<div id="menu_content">
 							<!-- TÖBB GOMB KELL !!!!!!!!!!!!!!!-->

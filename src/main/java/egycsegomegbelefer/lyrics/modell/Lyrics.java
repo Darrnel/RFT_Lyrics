@@ -6,13 +6,10 @@ package egycsegomegbelefer.lyrics.modell;
  * and open the template in the editor.
  */
 
-import javax.persistence.Entity;
-
 /**
  *
  * @author marci
  */
-@Entity
 public class Lyrics {
 
     private long id;
