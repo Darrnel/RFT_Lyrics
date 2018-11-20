@@ -6,6 +6,8 @@ package egycsegomegbelefer.lyrics.modell;
  * and open the template in the editor.
  */
 
+import javax.persistence.Entity;
+
 /**
  *
  * @author marci
