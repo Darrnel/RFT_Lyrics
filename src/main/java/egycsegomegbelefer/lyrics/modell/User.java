@@ -1,39 +1,34 @@
 package egycsegomegbelefer.lyrics.modell;
 
+import javax.persistence.*;
+import java.time.LocalDate;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-        import java.time.LocalDate;
-        import java.util.List;
-
-/**
- *
- * @author marci
- */
+@Entity
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String userName;
     private String password;
-    private List<Lyrics> lyrics;
     private String email; // optional
     private String picURL; // optional
     private LocalDate dateOfBirth; // optional
     private Rang rang;
+    @OneToMany(mappedBy = "user")
+    private Comment comment;
+    @OneToMany(mappedBy = "user")
+    private Lyrics lyrics;
 
-    public User(long id, String userName, String password, List<Lyrics> lyrics, String email, String picURL, LocalDate dateOfBirth, Rang rang) {
-        this.id = id;
+    public User(String userName, String password, String email, String picURL, LocalDate dateOfBirth, Rang rang, Comment comment , Lyrics lyrics) {
         this.userName = userName;
         this.password = password;
-        this.lyrics = lyrics;
         this.email = email;
         this.picURL = picURL;
         this.dateOfBirth = dateOfBirth;
         this.rang = rang;
+        this.comment = comment;
+        this.lyrics = lyrics;
     }
 
     public long getId() {
@@ -48,7 +43,7 @@ public class User {
         return password;
     }
 
-    public List<Lyrics> getLyrics() {
+    public Lyrics getLyrics() {
         return lyrics;
     }
 
@@ -80,7 +75,7 @@ public class User {
         this.password = password;
     }
 
-    public void setLyrics(List<Lyrics> lyrics) {
+    public void setLyrics(Lyrics lyrics) {
         this.lyrics = lyrics;
     }
 
@@ -104,7 +99,4 @@ public class User {
     public String toString() {
         return "User{" + "id=" + id + ", userName=" + userName + ", password=" + password + ", lyrics=" + lyrics + ", email=" + email + ", picURL=" + picURL + ", dateOfBirth=" + dateOfBirth + ", rang=" + rang + '}';
     }
-
-
-
 }
