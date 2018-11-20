@@ -16,10 +16,12 @@ public class Lyrics {
     private int voteCounter;
     @ManyToOne
     private User user;
-    @OneToMany(mappedBy = "lyrics")
-    private Comment comment;
 
-    public Lyrics(String author, String album, String title, String genre, String lyrics, String uploaderID, int voteCounter, User user, Comment comment) {
+    public Lyrics(){
+
+    }
+
+    public Lyrics(String author, String album, String title, String genre, String lyrics, String uploaderID, int voteCounter, User user) {
         this.author = author;
         this.album = album;
         this.title = title;
@@ -27,7 +29,6 @@ public class Lyrics {
         this.lyrics = lyrics;
         this.voteCounter = voteCounter;
         this.user = user;
-        this.comment = comment;
     }
 
     public long getId() {
