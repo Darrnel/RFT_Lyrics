@@ -10,6 +10,7 @@ package egycsegomegbelefer.lyrics.modell;
  *
  * @author marci
  */
+@Entity
 public class Lyrics {
 
     private long id;
