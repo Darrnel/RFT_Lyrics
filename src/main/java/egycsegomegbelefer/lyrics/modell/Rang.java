@@ -11,5 +11,5 @@ package egycsegomegbelefer.lyrics.modell;
  * @author marci
  */
 public enum Rang {
-    BATFAI,UJONC,KEZDO,TAPASZTALT,GOD,BALLA,JESZY;
+    UJONC,KEZDO,TAPASZTALT,LEGJOBB,GOD;
 }
