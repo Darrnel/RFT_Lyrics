@@ -1,35 +1,33 @@
 package egycsegomegbelefer.lyrics.modell;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import javax.persistence.*;
 
-/**
- *
- * @author marci
- */
+@Entity
 public class Lyrics {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String author;
     private String album;
     private String title;
     private String genre;
     private String lyrics;
-    private String uploaderID;
     private int voteCounter;
+    @ManyToOne
+    private User user;
+    @OneToMany(mappedBy = "lyrics")
+    private Comment comment;
 
-    public Lyrics(long id, String author, String album, String title, String genre, String lyrics, String uploaderID, int voteCounter) {
-        this.id = id;
+    public Lyrics(String author, String album, String title, String genre, String lyrics, String uploaderID, int voteCounter, User user, Comment comment) {
         this.author = author;
         this.album = album;
         this.title = title;
         this.genre = genre;
         this.lyrics = lyrics;
-        this.uploaderID = uploaderID;
         this.voteCounter = voteCounter;
+        this.user = user;
+        this.comment = comment;
     }
 
     public long getId() {
@@ -54,10 +52,6 @@ public class Lyrics {
 
     public String getLyrics() {
         return lyrics;
-    }
-
-    public String getUploaderID() {
-        return uploaderID;
     }
 
     public int getVoteCounter() {
@@ -88,19 +82,15 @@ public class Lyrics {
         this.lyrics = lyrics;
     }
 
-    public void setUploaderID(String uploaderID) {
-        this.uploaderID = uploaderID;
-    }
-
     public void setVoteCounter(int voteCounter) {
         this.voteCounter = voteCounter;
     }
 
     @Override
     public String toString() {
-        return "Lyrics{" + "id=" + id + ", author=" + author + ", album=" + album + ", title=" + title + ", genre=" + genre + ", lyrics=" + lyrics + ", uploaderID=" + uploaderID + ", voteCounter=" + voteCounter + '}';
+        return "Lyrics{" + "id=" + id + ", author=" + author + ", album=" + album + ", title=" + title + ", genre=" + genre + ", lyrics=" + lyrics + ", voteCounter=" + voteCounter + "user: " + user.getUserName() +'}';
     }
-
-
-
 }
+
+
+
