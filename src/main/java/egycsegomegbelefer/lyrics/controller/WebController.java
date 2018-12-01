@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class WebController {
 
-    @GetMapping("/")
+    @GetMapping("/asd")
     public String indexLoader(){
         return "index";
     }
