@@ -49,26 +49,28 @@
 		</div>
 		<!--REGISZTRÁCIÓS PANEL-->
 		<div id="registerForm" class="modalReg">
-			<form id="modalContent"class="modal-content" action="/action_page.php">
+			<form th:action="@{/registration}" id="modalContent"class="modal-content" autocomplete="off"
+			th:object="${user}" method="POST" role="form">
 				<div id="modalContainer" class="container">
 					<h1 class="titleForm">Sign Up</h1>
 
-					<label for="usename"><b>Username</b></label>
-					<input id="usernameReg"type="text" placeholder="Enter Username" name="username" required>
+					<label th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}" class="signupError"></label>
+					<input type="text" th:field="*{userName}" placeholder="Enter Username">
 
-					<label for="email"><b>Email</b></label>
-					<input id="emailReg" type="text" placeholder="Enter Email" name="email" required>
+					<label th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="signupError"></label>
+					<input type="text" th:field="*{email}"placeholder="Enter Email">
 
-					<label for="psw"><b>Password</b></label>
-					<input id="passwordReg" type="password" placeholder="Enter Password" name="psw" required>
+					<label th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="signupError"></label>
+					<input type="password" th:field="*{password}"placeholder="Enter Password">
 
-					<label for="psw-repeat"><b>Repeat Password</b></label>
-					<input id="passwordRepeatReg" type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+					<!--<input type="password" placeholder="Repeat Password">-->
 
 					<div class="clearfix">	      
 						<a th:href="@{/}" class="cancelbtn">Cancel</a>
 						<button type="submit" class="signupbtn">Sign Up</button>
 					</div>
+					<h2><span class="succesReg" th:utext="${successMessage}"></span></h2>
 				</div>
 			</form>
 		</div>

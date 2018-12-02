@@ -49,15 +49,15 @@
 		</div>
 		<!--BEJELENTKEZŐ PANEL-->
 		<div id="loginForm" class="modalLogin">
-			<form class="modal-content" action="/action_page.php">
+			<form th:action="@{/login}" method="POST" class="modal-content">
 				<div class="container">
 					<h1 class="titleForm">Log in</h1>
 
 					<label for="username"><b>Username</b></label>
-					<input id="usernameLogin" type="text" th:placeholder="Enter Username" name="username" required>
+                    <input id="username" type="text" th:placeholder="Username" name="username" required>
 
-					<label for="psw"><b>Password</b></label>
-					<input id="passwordLogin" type="password" th:placeholder="Enter Password" name="psw" required>
+					<label for="password"><b>Password</b></label>
+					<input id="password" type="password" th:placeholder="Password" name="password" required>
 
 					<div class="clearfix">
 						<a th:href="@{/}" class="cancelbtn">Cancel</a>

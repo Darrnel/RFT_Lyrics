@@ -239,3 +239,13 @@ hr {
 .titleForm{
 	color: orange;
 }
+.signupError{
+	color: red;
+	font-size: 13px;
+	font-weight: bold;
+}
+.succesReg{
+	color: #4CAF50;
+	font-size: 40px;
+	text-align: center;
+}
