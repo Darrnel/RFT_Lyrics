@@ -10,12 +10,12 @@
 	<div id="topline"></div>
 	<div id="page_container">
 		<header id="header">
-			<div id="logo"><a href="index.html"><img th:src="@{/images/logo.png}"/></a></div>
+			<div id="logo"><a th:href="@{/index}"><img th:src="@{/images/logo.png}"/></a></div>
 			<div id="header_content">
 				<div id="menu_content">
 					<!-- TÖBB GOMB KELL !!!!!!!!!!!!!!!-->
-					<a class="menubar" href="toplist.html">Toplist</a>
-					<a class="menubar" href="ranking.html" >Ranking</a>
+					<a class="menubar" th:href="@{/toplist}">Toplist</a>
+					<a class="menubar" th:href="@{/ranking}" >Ranking</a>
 				</div>
 				<a href="login.html" class="loginBtn">Log In</a>
 				<a href="registration.html" class="regBtn">Sign Up</a>
@@ -60,7 +60,7 @@
 					<input id="passwordLogin" type="password" placeholder="Enter Password" name="psw" required>
 
 					<div class="clearfix">
-						<a href="index.html" class="cancelbtn">Cancel</a>
+						<a th:href="@{/index}" class="cancelbtn">Cancel</a>
 						<button type="submit" class="signupbtn">Log In</button>
 					</div>
 				</div>

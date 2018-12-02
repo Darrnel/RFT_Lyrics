@@ -10,12 +10,12 @@
 	<div id="topline"></div>
 	<div id="page_container">
 		<header id="header">
-			<div id="logo"><a href="index.html"><img th:src="@{/images/logo.png}"/></a></div>
+			<div id="logo"><a th:href="@{/index}"><img th:src="@{/images/logo.png}"/></a></div>
 			<div id="header_content">
 				<div id="menu_content">
 					<!-- TÖBB GOMB KELL !!!!!!!!!!!!!!!-->
-					<a class="menubar" href="toplist.html">Toplist</a>
-					<a class="menubar" href="ranking.html" >Ranking</a>
+					<a class="menubar" th:href="@{/toplist}">Toplist</a>
+					<a class="menubar" th:href="@{/ranking}" >Ranking</a>
 				</div>
 				<!--TODO HA KI X-ELI A LOGINT/SIGNUPOT AKKOR TÖRÖLJE KI A LABELEKET-->
 				<!--TODO FORMOK KÖZÉPRE IGAZÍTÁSA-->
@@ -68,7 +68,7 @@
 					<input id="passwordRepeatReg" type="password" placeholder="Repeat Password" name="psw-repeat" required>
 
 					<div class="clearfix">	      
-						<a href="index.html" class="cancelbtn">Cancel</a>  
+						<a th:href="@{/index}" class="cancelbtn">Cancel</a>
 						<button type="submit" class="signupbtn">Sign Up</button>
 					</div>
 				</div>
