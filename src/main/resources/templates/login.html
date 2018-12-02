@@ -10,7 +10,7 @@
 	<div id="topline"></div>
 	<div id="page_container">
 		<header id="header">
-			<div id="logo"><a th:href="@{/index}"><img th:src="@{/images/logo.png}"/></a></div>
+			<div id="logo"><a th:href="@{/}"><img th:src="@{/images/logo.png}"/></a></div>
 			<div id="header_content">
 				<div id="menu_content">
 					<!-- TÖBB GOMB KELL !!!!!!!!!!!!!!!-->
@@ -54,13 +54,13 @@
 					<h1 class="titleForm">Log in</h1>
 
 					<label for="username"><b>Username</b></label>
-					<input id="usernameLogin" type="text" placeholder="Enter Username" name="username" required>
+					<input id="usernameLogin" type="text" th:placeholder="Enter Username" name="username" required>
 
 					<label for="psw"><b>Password</b></label>
-					<input id="passwordLogin" type="password" placeholder="Enter Password" name="psw" required>
+					<input id="passwordLogin" type="password" th:placeholder="Enter Password" name="psw" required>
 
 					<div class="clearfix">
-						<a th:href="@{/index}" class="cancelbtn">Cancel</a>
+						<a th:href="@{/}" class="cancelbtn">Cancel</a>
 						<button type="submit" class="signupbtn">Log In</button>
 					</div>
 				</div>
