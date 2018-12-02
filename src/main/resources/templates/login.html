@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Lyrics</title>
-	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="loginReg.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -48,18 +48,26 @@
 			</div>
 			<!--searchbar, radio buttons ... -->
 		</div>
-		<div id="welcome">
-			<h2 id="welcome_h1">Welcome here!</h2>
-			Lyrics.com is a huge collection of song lyrics, album information and featured video clips from endless number of artists — collaboratively assembled by contributing editors.
+		<!--BEJELENTKEZŐ PANEL-->
+		<div id="loginForm" class="modalLogin">
+			<form class="modal-content" action="/action_page.php">
+				<div class="container">
+					<h1 class="titleForm">Log in</h1>
 
-			Browse our lyrics and artists database alphabetically or simply search by keywords. Lyrics can be rated, heard using song videos and even translated to many common and not so common languages.
-		</div>
-		<div id="main_content">
-			MAIN CONTENT
-		</div>
+					<label for="username"><b>Username</b></label>
+					<input id="usernameLogin" type="text" placeholder="Enter Username" name="username" required>
 
+					<label for="psw"><b>Password</b></label>
+					<input id="passwordLogin" type="password" placeholder="Enter Password" name="psw" required>
+
+					<div class="clearfix">
+						<a href="index.html" class="cancelbtn">Cancel</a>
+						<button type="submit" class="signupbtn">Log In</button>
+					</div>
+				</div>
+			</form>
+		</div>
 	</div>
-	<script src="../static/javascript.js" type="text/javascript"></script>
 </body>
 
 </html>
