@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title>Lyrics</title>
-	<link rel="stylesheet" type="text/css" href="loginReg.css">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/loginReg.css}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 	<div id="topline"></div>
 	<div id="page_container">
 		<header id="header">
-			<div id="logo"><a href="index.html"><img src="logo.png"/></a></div>
+			<div id="logo"><a href="index.html"><img th:src="@{/images/logo.png}"/></a></div>
 			<div id="header_content">
 				<div id="menu_content">
 					<!-- TÖBB GOMB KELL !!!!!!!!!!!!!!!-->
 					<a class="menubar" href="toplist.html">Toplist</a>
 					<a class="menubar" href="ranking.html" >Ranking</a>
 				</div>
-				<!--TODO HA KI X-ELI A LOGINT/SIGNUPOT AKKOR TÖRÖLJE KI A LABELEKET-->
-				<!--TODO FORMOK KÖZÉPRE IGAZÍTÁSA-->
 				<a href="login.html" class="loginBtn">Log In</a>
 				<a href="registration.html" class="regBtn">Sign Up</a>
 			</div>

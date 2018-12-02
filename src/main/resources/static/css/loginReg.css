@@ -192,23 +192,15 @@ button:hover {
 	padding: 16px;
 }
 
-.modalLogin{
+.modalLogin,.modalReg {
 	display: block; /* Hidden by default */
 	position: fixed; /* Stay in place */
+	z-index: -1;
 	left:0;
 	top:15%;
 	width: 100%;
 	height: 100%; /* Full height */
 	overflow: auto; /* Enable scroll if needed */
-}
-.modalReg{
-	display: block; /* Hidden by default */
-	position: fixed; /* Stay in place */
-	left:0;
-	top:15%;
-	width: 100%;
-	height: 100%; /* Full height */
-	overflow: auto; /* Enable scroll if needed */    
 }
 
 /* Modal Content/Box */
