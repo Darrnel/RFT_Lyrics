@@ -245,7 +245,9 @@ hr {
 	font-weight: bold;
 }
 .succesReg{
-	color: #4CAF50;
-	font-size: 40px;
+	color: lime;
+	font-size: 18px;
 	text-align: center;
+	display: block;
+	font-family: fantasy, sans-serif;
 }

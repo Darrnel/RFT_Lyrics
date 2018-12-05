@@ -63,14 +63,13 @@
 					<label th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="signupError"></label>
 					<input type="password" th:field="*{password}"placeholder="Enter Password">
 
-
 					<!--<input type="password" placeholder="Repeat Password">-->
-
+					<span class="succesReg" th:utext="${successMessage}">Sikeres regisztráció.</span>
 					<div class="clearfix">	      
 						<a th:href="@{/}" class="cancelbtn">Cancel</a>
 						<button type="submit" class="signupbtn">Sign Up</button>
 					</div>
-					<h2><span class="succesReg" th:utext="${successMessage}"></span></h2>
+
 				</div>
 			</form>
 		</div>
