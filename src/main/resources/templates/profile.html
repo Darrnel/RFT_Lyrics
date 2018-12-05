@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Lyrics</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/profile.css}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div id="topline"></div>
+	<div id="page_container">
+		<header id="header">
+			<div id="logo"><a th:href="@{/}"><img th:src="@{/images/logo.png}"/></a></div>
+			<div id="header_content">
+				<div id="menu_content">
+					<!-- TÖBB GOMB KELL !!!!!!!!!!!!!!!-->
+					<a class="menubar" th:href="@{/toplist}">Toplist</a>
+					<a class="menubar" th:href="@{/ranking}" >Ranking</a>
+				</div>
+				<a th:href="@{/login}" class="loginBtn">Log In</a>
+				<a th:href="@{/registration}" class="regBtn">Sign Up</a>
+			</div>
+		</header>
+		<div id="searchbar">
+			<div id="searchbar_content">
+				<input id="search" type="text" name="search" autocomplete="off" placeholder="Search for lyrics or artist...">
+				<div id="radio_buttons">
+					<div>
+						<label class="radio_button_style">
+							<input type="radio" name="qtype" id="radio1" value="1" checked="checked">
+							<span>Artist</span>
+						</label>
+					</div>
+					<div>
+						<label class="radio_button_style">
+							<input type="radio" name="qtype" id="radio2" value="2">
+							<span>Lyrics</span>
+						</label>
+					</div>
+					<div>
+						<label class="radio_button_style">
+							<input type="radio" name="qtype" id="radio3" value="3">
+							<span>Album</span>
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="profile_content">
+			<h3 id="welcome_h1">Welcome userName!</h3>
+            <div id="profile_div">
+                <img id="profile_picture" th:src="@{/images/default_picture.png}"/>
+                <table id="user_table">
+                    <tr>
+                        <td>
+                            username:
+                        </td>
+                        <td>
+                            kalányos józsi
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Mi a rangom:
+                        </td>
+                        <td>
+                            hát admin
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            emailcímem
+                        </td>
+                        <td>
+                            kalika@kula.akali
+                        </td>
+                    </tr>
+                </table>
+                
+            </div>
+            <div id="user_activity">
+                <h2 id="activity_title">My Activity</h2>
+                    <table id="activity_table">
+                        <thead>
+                            <th>
+                                Author
+                            </th>
+                            <th>
+                                Album
+                            </th>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Votes
+                            </th>
+                        </thead>
+                        <tr>
+                            <td>
+                                music author
+                            </td>
+                            <td>
+                                music album
+                            </td>
+                            <td>
+                                music title
+                            </td>
+                            <td>
+                                vote for music
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+		</div>
+	</div>
+</body>
+
+</html>
