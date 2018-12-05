@@ -18,7 +18,6 @@ public class Lyrics {
     private User user;
 
     public Lyrics(){
-
     }
 
     public Lyrics(String author, String album, String title, String genre, String lyrics, String uploaderID, int voteCounter, User user) {
