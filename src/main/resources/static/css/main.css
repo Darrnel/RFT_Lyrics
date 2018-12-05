@@ -91,6 +91,23 @@ a.regBtn{
 	font-weight: bold;
 	text-shadow: 0.5px 0.5px 0.5px black;
 }
+#logOutBtn{
+	padding: 10px 4px 10px 4px;
+	background-color: orange;
+	width: 220px;
+	height: 30px;
+	color: white;
+	box-sizing: border-box;
+	border-radius: 7px;
+	font-weight: bold;
+	text-shadow: 0.5px 0.5px 0.5px black;
+}
+#hiMsg{
+	color: red;
+}
+#loggedIn{
+	text-align: center;
+}
 a.loginBtn, a.regBtn{
 	font-size: 15px;
 	opacity: 1;
