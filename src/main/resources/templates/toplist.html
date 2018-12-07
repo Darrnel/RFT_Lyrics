@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+	<title>Lyrics</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/toplist.css}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div id="topline"></div>
+	<div id="page_container">
+		<header id="header">
+			<div id="logo"><a th:href="@{/}"><img th:src="@{/images/logo.png}"/></a></div>
+			<div id="header_content">
+				<div id="menu_content">
+					<!-- TÖBB GOMB KELL !!!!!!!!!!!!!!!-->
+					<a class="menubar" th:href="@{/toplist}">Toplist</a>
+					<a class="menubar" th:href="@{/ranking}" >Ranking</a>
+				</div>
+                <div sec:authorize="isAuthenticated()">
+				</div>
+				<a th:href="@{/login}" class="loginBtn">Log In</a>
+				<a th:href="@{/registration}" class="regBtn">Sign Up</a>
+			</div>
+		</header>
+		<div id="searchbar">
+			<div id="searchbar_content">
+				<input id="search" type="text" name="search" autocomplete="off" placeholder="Search for lyrics or artist...">
+				<div id="radio_buttons">
+					<div>
+						<label class="radio_button_style">
+							<input type="radio" name="qtype" id="radio1" value="1" checked="checked">
+							<span>Artist</span>
+						</label>
+					</div>
+					<div>
+						<label class="radio_button_style">
+							<input type="radio" name="qtype" id="radio2" value="2">
+							<span>Lyrics</span>
+						</label>
+					</div>
+					<div>
+						<label class="radio_button_style">
+							<input type="radio" name="qtype" id="radio3" value="3">
+							<span>Album</span>
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="welcome">
+			<h2 id="welcom_h1">Toplist</h2>
+			
+		</div>
+		<div id="main_content">
+			<div id="table_container">
+				<table>
+                        <thead>
+                        	<th>
+                                #
+                            </th>
+                            <th>
+                                Author
+                            </th>
+                            <th>
+                                Album
+                            </th>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Votes
+                            </th>
+                        </thead>
+                        <tbody>
+                        	<tr>
+                        		<td></td>
+                        		<td>LilGxNemazalány</td>
+                        		<td class="crop">Nemvolt még albumuk</td>
+                        		<td>Unikornis</td>
+                        		<td>Végtelen</td>
+                        	</tr>
+                        </tbody>
+			</div>
+		</div>
+
+	</div>
+</body>
+
+</html>
