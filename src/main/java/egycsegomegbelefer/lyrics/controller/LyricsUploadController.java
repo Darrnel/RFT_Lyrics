@@ -5,6 +5,8 @@ import egycsegomegbelefer.lyrics.domain.User;
 import egycsegomegbelefer.lyrics.service.LyricsService;
 import egycsegomegbelefer.lyrics.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,10 +20,17 @@ public class LyricsUploadController {
 
     @Autowired
     private LyricsService lyricsService;
+    private UserService userService;
 
     @RequestMapping(value={"/lyricsupload"}, method = RequestMethod.GET)
     public ModelAndView lyricsupload() {
         ModelAndView modelAndView = new ModelAndView();
+        try {
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            User user = userService.findUserByEmail(auth.getName());
+            modelAndView.addObject("userName", user.getUserName());
+        }catch (NullPointerException e){}
+
         modelAndView.setViewName("lyricsupload");
         return modelAndView;
     }

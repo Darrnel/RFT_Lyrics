@@ -16,7 +16,13 @@ public class HomeController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value={"/","/index"}, method = RequestMethod.GET)
+    @RequestMapping(value={"/"}, method = RequestMethod.GET)
+    public ModelAndView home() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+        return modelAndView;
+    }
+    @RequestMapping(value={"/index"}, method = RequestMethod.GET)
     public ModelAndView index() {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

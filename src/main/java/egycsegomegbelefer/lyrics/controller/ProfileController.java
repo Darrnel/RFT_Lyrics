@@ -17,11 +17,12 @@ public class ProfileController {
     private UserService userService;
 
     @RequestMapping(value="/profile", method = RequestMethod.GET)
-    public ModelAndView index() {
+    public ModelAndView profile() {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
         modelAndView.addObject("userName", user.getUserName());
+        modelAndView.addObject("rang", user.getRang());
         modelAndView.setViewName("profile");
         return modelAndView;
     }

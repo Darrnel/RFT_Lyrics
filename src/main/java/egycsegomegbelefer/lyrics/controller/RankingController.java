@@ -17,11 +17,15 @@ public class RankingController {
     private UserService userService;
 
     @RequestMapping(value="/ranking", method = RequestMethod.GET)
-    public ModelAndView index() {
+    public ModelAndView ranking() {
         ModelAndView modelAndView = new ModelAndView();
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByEmail(auth.getName());
-        modelAndView.addObject("userName", user.getUserName());
+        try {
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            User user = userService.findUserByEmail(auth.getName());
+            modelAndView.addObject("userName", user.getUserName());
+        }catch (NullPointerException e){
+            System.out.println(e);
+        }
         modelAndView.setViewName("ranking");
         return modelAndView;
     }

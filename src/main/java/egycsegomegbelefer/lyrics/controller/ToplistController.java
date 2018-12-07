@@ -19,9 +19,13 @@ public class ToplistController {
     @RequestMapping(value={"/toplist"}, method = RequestMethod.GET)
     public ModelAndView toplist() {
         ModelAndView modelAndView = new ModelAndView();
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByEmail(auth.getName());
-        modelAndView.addObject("userName", user.getUserName());
+        try {
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            User user = userService.findUserByEmail(auth.getName());
+            modelAndView.addObject("userName", user.getUserName());
+        }catch (NullPointerException e){
+            System.out.println(e);
+        }
         modelAndView.setViewName("toplist");
         return modelAndView;
     }
