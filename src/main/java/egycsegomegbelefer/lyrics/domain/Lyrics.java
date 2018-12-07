@@ -11,7 +11,6 @@ public class Lyrics {
     private String author;
     private String album;
     private String title;
-    private String genre;
     private String lyrics;
     private int voteCounter;
     @ManyToOne
@@ -20,11 +19,10 @@ public class Lyrics {
     public Lyrics(){
     }
 
-    public Lyrics(String author, String album, String title, String genre, String lyrics, String uploaderID, int voteCounter, User user) {
+    public Lyrics(String author, String album, String title, String lyrics, String uploaderID, int voteCounter, User user) {
         this.author = author;
         this.album = album;
         this.title = title;
-        this.genre = genre;
         this.lyrics = lyrics;
         this.voteCounter = voteCounter;
         this.user = user;
@@ -44,10 +42,6 @@ public class Lyrics {
 
     public String getTitle() {
         return title;
-    }
-
-    public String getGenre() {
-        return genre;
     }
 
     public String getLyrics() {
@@ -74,10 +68,6 @@ public class Lyrics {
         this.title = title;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
     public void setLyrics(String lyrics) {
         this.lyrics = lyrics;
     }
@@ -88,7 +78,7 @@ public class Lyrics {
 
     @Override
     public String toString() {
-        return "Lyrics{" + "id=" + id + ", author=" + author + ", album=" + album + ", title=" + title + ", genre=" + genre + ", lyrics=" + lyrics + ", voteCounter=" + voteCounter + "user: " + user.getUserName() +'}';
+        return "Lyrics{" + "id=" + id + ", author=" + author + ", album=" + album + ", title=" + title + ", lyrics=" + lyrics + ", voteCounter=" + voteCounter + "user: " + user.getUserName() +'}';
     }
 }
 
