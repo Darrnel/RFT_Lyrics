@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>Lyrics</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/ranking.css}">
@@ -17,8 +18,14 @@
                 <a class="menubar" th:href="@{/toplist}">Toplist</a>
                 <a class="menubar" th:href="@{/ranking}" >Ranking</a>
             </div>
-            <a th:href="@{/login}" class="loginBtn">Log In</a>
-            <a th:href="@{/registration}" class="regBtn">Sign Up</a>
+            <div sec:authorize="!isAuthenticated()">
+                <a th:href="@{/login}" class="loginBtn">Log In</a>
+                <a th:href="@{/registration}" class="regBtn">Sign Up</a>
+            </div>
+            <div id="loggedIn" sec:authorize="isAuthenticated()">
+                <a th:href="@{/profile}" th:utext="${userName}" class="loginBtn">Profile</a>
+                <a th:href="@{/logout}" class="regBtn">LogOut</a>
+            </div>
         </div>
     </header>
     <div id="searchbar">

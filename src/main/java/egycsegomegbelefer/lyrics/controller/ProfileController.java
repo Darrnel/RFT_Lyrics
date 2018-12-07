@@ -1,6 +1,5 @@
 package egycsegomegbelefer.lyrics.controller;
 
-import egycsegomegbelefer.lyrics.domain.Rang;
 import egycsegomegbelefer.lyrics.domain.User;
 import egycsegomegbelefer.lyrics.service.UserService;
 import org.springframework.security.core.Authentication;
@@ -22,9 +21,7 @@ public class ProfileController {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
-        user.setRang(Rang.UJONC);
         modelAndView.addObject("userName", user.getUserName());
-        modelAndView.addObject("rang", user.getRang().toString().toLowerCase());
         modelAndView.setViewName("profile");
         return modelAndView;
     }

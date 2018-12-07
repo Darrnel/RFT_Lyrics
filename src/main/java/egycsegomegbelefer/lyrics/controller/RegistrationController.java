@@ -1,5 +1,6 @@
 package egycsegomegbelefer.lyrics.controller;
 
+import egycsegomegbelefer.lyrics.domain.Rang;
 import egycsegomegbelefer.lyrics.domain.User;
 import egycsegomegbelefer.lyrics.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,7 @@ public class RegistrationController {
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("registration");
         } else {
+            user.setRang(Rang.UJONC);
             userService.saveUser(user);
             modelAndView.addObject("successMessage", "User has been registered successfully");
             modelAndView.addObject("user", new User());

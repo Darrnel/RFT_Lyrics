@@ -23,7 +23,7 @@
 					<a th:href="@{/registration}" class="regBtn">Sign Up</a>
 				</div>
 				<div id="loggedIn" sec:authorize="isAuthenticated()">
-					<a th:href="@{/profile}" class="loginBtn">Profile</a>
+					<a th:href="@{/profile}" th:text="${userName}" class="loginBtn">Profile</a>
 					<a th:href="@{/logout}" class="regBtn">LogOut</a>
 				</div>
 			</div>
@@ -86,9 +86,9 @@
                         		<td>Végtelen</td>
                         	</tr>
                         </tbody>
+				</table>
 			</div>
 		</div>
-
 	</div>
 </body>
 
