@@ -13,5 +13,4 @@ public class LyricsUploadController {
         modelAndView.setViewName("lyricsupload");
         return modelAndView;
     }
-
 }
