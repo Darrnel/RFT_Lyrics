@@ -62,16 +62,16 @@
                         <td>
                             username:
                         </td>
-                        <td>
-                            kalányos józsi
+                        <td th:utext="${userName}">
+                            Basic Username
                         </td>
                     </tr>
                     <tr>
                         <td>
                             Mi a rangom:
                         </td>
-                        <td>
-                            hát admin
+                        <td th:utext="${rang}">
+                            Basic Rang
                         </td>
                     </tr>
                     <tr>
@@ -79,7 +79,7 @@
                             emailcímem:
                         </td>
                         <td sec:authentication="name">
-                            kalika@kula.akali
+                            Basic@Example.com
                         </td>
                     </tr>
                 </table>
