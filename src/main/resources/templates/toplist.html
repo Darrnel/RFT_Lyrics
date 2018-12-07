@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:th="http://www.thymeleaf.org">
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 	<title>Lyrics</title>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/loginReg.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/toplist.css}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -13,14 +14,14 @@
 			<div id="logo"><a th:href="@{/}"><img th:src="@{/images/logo.png}"/></a></div>
 			<div id="header_content">
 				<div id="menu_content">
-
+					<!-- TÖBB GOMB KELL !!!!!!!!!!!!!!!-->
 					<a class="menubar" th:href="@{/toplist}">Toplist</a>
 					<a class="menubar" th:href="@{/ranking}" >Ranking</a>
 				</div>
-				<div>
+                <div sec:authorize="isAuthenticated()">
+				</div>
 				<a th:href="@{/login}" class="loginBtn">Log In</a>
 				<a th:href="@{/registration}" class="regBtn">Sign Up</a>
-				</div>
 			</div>
 		</header>
 		<div id="searchbar">
@@ -47,27 +48,43 @@
 					</div>
 				</div>
 			</div>
-			<!--searchbar, radio buttons ... -->
 		</div>
-		<!--BEJELENTKEZŐ PANEL-->
-		<div id="loginForm" class="modalLogin">
-			<form th:action="@{/login}" method="POST" class="modal-content">
-				<div class="container">
-					<h1 class="titleForm">Log in</h1>
-
-					<label><b>Email</b></label>
-                    <input type="text" id="email" name="email" placeholder="Enter Email Address">
-
-					<label><b>Password</b></label>
-					<input type="password" id="password" name="password" placeholder="Enter Password">
-
-					<div class="clearfix">
-						<a th:href="@{/}" class="cancelbtn">Cancel</a>
-						<button name="Submit" value="Login" type="Submit" class="signupbtn">Log In</button>
-					</div>
-				</div>
-			</form>
+		<div id="welcome">
+			<h2 id="welcom_h1">Toplist</h2>
+			
 		</div>
+		<div id="main_content">
+			<div id="table_container">
+				<table>
+                        <thead>
+                        	<th>
+                                #
+                            </th>
+                            <th>
+                                Author
+                            </th>
+                            <th>
+                                Album
+                            </th>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Votes
+                            </th>
+                        </thead>
+                        <tbody>
+                        	<tr>
+                        		<td></td>
+                        		<td>LilGxNemazalány</td>
+                        		<td class="crop">Nemvolt még albumuk</td>
+                        		<td>Unikornis</td>
+                        		<td>Végtelen</td>
+                        	</tr>
+                        </tbody>
+			</div>
+		</div>
+
 	</div>
 </body>
 
