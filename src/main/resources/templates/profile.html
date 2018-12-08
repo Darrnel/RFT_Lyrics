@@ -102,17 +102,17 @@
                     Votes
                 </th>
                 </thead>
-                <tr>
-                    <td>
+                <tr th:each="lyrics : ${lyricses}">
+                    <td th:text="${lyrics.getAuthor()}">
                         music author
                     </td>
-                    <td>
+                    <td th:text="${lyrics.getAlbum()}">
                         music album
                     </td>
-                    <td>
+                    <td th:text="${lyrics.getTitle()}">
                         music title
                     </td>
-                    <td>
+                    <td th:text="${lyrics.getVoteCounter()}">
                         vote for music
                     </td>
                 </tr>

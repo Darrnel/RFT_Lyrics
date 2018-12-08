@@ -1,6 +1,8 @@
 package egycsegomegbelefer.lyrics.controller;
 
+import egycsegomegbelefer.lyrics.domain.Lyrics;
 import egycsegomegbelefer.lyrics.domain.User;
+import egycsegomegbelefer.lyrics.service.LyricsService;
 import egycsegomegbelefer.lyrics.service.UserService;
 import org.springframework.security.core.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +18,15 @@ public class ProfileController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private LyricsService lyricsService;
+
     @RequestMapping(value="/profile", method = RequestMethod.GET)
     public ModelAndView profile() {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
+        modelAndView.addObject("lyricses", lyricsService.findAllLyricsByUserId(user.getId()));
         modelAndView.addObject("userName", user.getUserName());
         modelAndView.addObject("rang", user.getRang());
         modelAndView.setViewName("profile");

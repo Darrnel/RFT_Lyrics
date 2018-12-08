@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 @Service
 public class LyricsService{
@@ -30,6 +31,10 @@ public class LyricsService{
 
     public boolean isLyricsExists(String author, String title){
         return lyricsRepository.findByAuthorAndTitle(author,title) == 1 ? true : false;
+    }
+
+    public List<Lyrics> findAllLyricsByUserId(long id){
+        return lyricsRepository.findAllByUserId(id);
     }
 
     public void saveLyrics(Lyrics lyrics) {
