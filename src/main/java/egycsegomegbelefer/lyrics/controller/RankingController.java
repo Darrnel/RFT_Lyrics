@@ -23,9 +23,8 @@ public class RankingController {
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             User user = userService.findUserByEmail(auth.getName());
             modelAndView.addObject("userName", user.getUserName());
-        }catch (NullPointerException e){
-            System.out.println(e);
-        }
+        }catch (NullPointerException e){}
+
         modelAndView.setViewName("ranking");
         return modelAndView;
     }

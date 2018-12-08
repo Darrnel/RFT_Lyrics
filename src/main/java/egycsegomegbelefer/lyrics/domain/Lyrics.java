@@ -7,18 +7,25 @@ public class Lyrics {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "lyrics_id")
     private long id;
+
     private String author;
     private String album;
     private String title;
+
+    @Column(columnDefinition = "TEXT")
     private String lyrics;
+
     private int voteCounter;
+
     @ManyToOne
+    @JoinTable(name = "lyrics_user", joinColumns = @JoinColumn(name = "lyrics_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
     private User user;
 
     public Lyrics(){
-    }
 
+    }
     public Lyrics(String author, String album, String title, String lyrics, String uploaderID, int voteCounter, User user) {
         this.author = author;
         this.album = album;
@@ -74,6 +81,14 @@ public class Lyrics {
 
     public void setVoteCounter(int voteCounter) {
         this.voteCounter = voteCounter;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

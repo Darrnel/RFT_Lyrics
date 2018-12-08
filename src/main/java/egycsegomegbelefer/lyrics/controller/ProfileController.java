@@ -25,6 +25,7 @@ public class ProfileController {
     public ModelAndView profile() {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println(auth.getPrincipal());
         User user = userService.findUserByEmail(auth.getName());
         modelAndView.addObject("lyricses", lyricsService.findAllLyricsByUserId(user.getId()));
         modelAndView.addObject("userName", user.getUserName());

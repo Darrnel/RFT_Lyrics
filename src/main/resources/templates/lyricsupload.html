@@ -56,12 +56,17 @@
 		<div class="toplist">
 			<h2 id="welcome">Lyrics Upload</h2>
 			<div class="lyrics_detail_container">
-				<input type="text" name="author" placeholder="Author" class="basicinput" />
-				<input type="text" name="album" placeholder="Album" class="basicinput" />
-				<input type="text" name="title" placeholder="Title" class="basicinput" />
-				<textarea class="lyrics"></textarea> 
+				<form id="uploadForm" th:action="@{/lyricsupload}" autocomplete="off"
+					  th:object="${lyrics}" method="POST" role="form">
+					<input type="text" th:field="*{author}" name="author" placeholder="Author" class="basicinput" />
+					<input type="text" th:field="*{album}" name="album" placeholder="Album" class="basicinput" />
+					<input type="text" th:field="*{title}" name="title" placeholder="Title" class="basicinput" />
 
-				<button name="Submit" value="Upload" type="Submit" class="upload_button">Upload</button>
+					<textarea form ="uploadForm" class="lyrics" th:field="*{lyrics}"></textarea>
+
+					<span class="succesReg" th:utext="${successMessage}">Succesfull upload. you faggot</span>
+					<button name="Submit" value="Upload" type="Submit" class="upload_button">Upload</button>
+				</form>
 			</div>
 		</div>
 	</div>

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.jws.soap.SOAPBinding;
 import javax.validation.Valid;
 
 @Controller
@@ -20,16 +21,20 @@ public class LyricsUploadController {
 
     @Autowired
     private LyricsService lyricsService;
+
+    @Autowired
     private UserService userService;
 
     @RequestMapping(value={"/lyricsupload"}, method = RequestMethod.GET)
     public ModelAndView lyricsupload() {
-        ModelAndView modelAndView = new ModelAndView();
-        try {
-            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-            User user = userService.findUserByEmail(auth.getName());
-            modelAndView.addObject("userName", user.getUserName());
-        }catch (NullPointerException e){}
+        ModelAndView modelAndView = new ModelAndView();;
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByEmail(auth.getName());
+        modelAndView.addObject("userName",user.getUserName());
+
+        Lyrics lyrics = new Lyrics();
+        modelAndView.addObject("lyrics", lyrics);
 
         modelAndView.setViewName("lyricsupload");
         return modelAndView;
@@ -52,10 +57,14 @@ public class LyricsUploadController {
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("lyricsupload");
         } else {
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            User user = userService.findUserByEmail(auth.getName());
+
+            lyrics.setUser(user);
             //ITT HATALMAS SZAKMAI SZÓCSATÁT VÍVOTT RICHÁRD ÉS VILMOS. - SZAKMAIFELJEGYZŐ MÁRTON ÚR
             lyricsService.saveLyrics(lyrics);
             modelAndView.addObject("successMessage", "Lyrics has been added to the DB successfully");
-            modelAndView.setViewName("lyricsuploader");
+            modelAndView.setViewName("lyricsupload");
 
         }
         return modelAndView;
