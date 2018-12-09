@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+	<title>Lyrics</title>
+	<link rel="stylesheet" type="text/css" href="css/showlyrics.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div id="topline"></div>
+	<div id="page_container">
+		<header id="header">
+			<div id="logo"><a th:href="@{/}"><img th:src="/images/logo.png"/></a></div>
+			<div id="header_content">
+				<div id="menu_content">
+					<!-- TÖBB GOMB KELL !!!!!!!!!!!!!!!-->
+					<a class="menubar" th:href="@{/toplist}">Toplist</a>
+					<a class="menubar" th:href="@{/ranking}" >Ranking</a>
+				</div>
+                <div sec:authorize="isAuthenticated()">
+				</div>
+				<a th:href="@{/login}" class="loginBtn">Log In</a>
+				<a th:href="@{/registration}" class="regBtn">Sign Up</a>
+			</div>
+		</header>
+		<div id="searchbar">
+			<div id="searchbar_content">
+				<input id="search" type="text" name="search" autocomplete="off" placeholder="Search for lyrics or artist...">
+				<div id="radio_buttons">
+					<div>
+						<label class="radio_button_style">
+							<input type="radio" name="qtype" id="radio1" value="1" checked="checked">
+							<span>Artist</span>
+						</label>
+					</div>
+					<div>
+						<label class="radio_button_style">
+							<input type="radio" name="qtype" id="radio2" value="2">
+							<span>Lyrics</span>
+						</label>
+					</div>
+					<div>
+						<label class="radio_button_style">
+							<input type="radio" name="qtype" id="radio3" value="3">
+							<span>Album</span>
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="main_content">
+			<div class="lyrics_container">
+				<div class="author_album_title_container">
+					<div class="details">
+						<span>Author:</span>
+						<span id="Author"></span>
+					</div>
+					<div class="details">
+						<span>Album:</span>
+						<span id="Album"></span>
+					</div>
+					<div class="details">
+						<span>Title:</span>
+						<span id="Title"></span>
+					</div>
+				</div>
+				<div class="lyrics">
+					<p>
+						DANCE DANCE,
+						DANCE 
+						dubudubududubud,
+						
+					</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</body>
+
+</html>

@@ -26,6 +26,7 @@ public class ToplistController {
         }catch (NullPointerException e){
             System.out.println(e);
         }
+
         modelAndView.setViewName("toplist");
         return modelAndView;
     }
