@@ -102,21 +102,31 @@
                 <th>
                     Votes
                 </th>
+                <th>
+                    Link
+                </th>
                 </thead>
+
                 <tr th:each="lyrics : ${lyricses}">
-                    <td th:text="${lyrics.getAuthor()}">
-                        music author
-                    </td>
-                    <td th:text="${lyrics.getAlbum()}">
-                        music album
-                    </td>
-                    <td th:text="${lyrics.getTitle()}">
-                        music title
-                    </td>
-                    <td th:text="${lyrics.getVoteCounter()}">
-                        vote for music
-                    </td>
+                    <a th:href="${'/showlyrics'}">
+                        <td th:text="${lyrics.getAuthor()}">
+                            music author
+                        </td>
+                        <td th:text="${lyrics.getAlbum()}">
+                            music album
+                        </td>
+                        <td th:text="${lyrics.getTitle()}">
+                            music title
+                        </td>
+                        <td th:text="${lyrics.getVoteCounter()}">
+                            vote for music
+                        </td>
+                        <td>
+                            <a th:href="@{/showlyrics}" style="color: blue;">show</a>
+                        </td>
+                    </a>
                 </tr>
+
             </table>
         </div>
     </div>

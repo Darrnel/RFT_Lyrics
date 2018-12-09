@@ -30,6 +30,7 @@ public class ProfileController {
         modelAndView.addObject("lyricses", lyricsService.findAllLyricsByUserId(user.getId()));
         modelAndView.addObject("userName", user.getUserName());
         modelAndView.addObject("rang", user.getRang());
+
         modelAndView.setViewName("profile");
         return modelAndView;
     }
