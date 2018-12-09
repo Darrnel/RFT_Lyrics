@@ -35,19 +35,16 @@ public class LyricsUploadController {
 
         Lyrics lyrics = new Lyrics();
         modelAndView.addObject("lyrics", lyrics);
-
         modelAndView.setViewName("lyricsupload");
         return modelAndView;
     }
 
 
 
-
     @RequestMapping(value = "/lyricsupload", method = RequestMethod.POST)
-    public ModelAndView createNewLyrics(@Valid Lyrics lyrics, BindingResult bindingResult) {
+    public ModelAndView createNewLyrics(Lyrics lyrics, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
         boolean lyricsExists = lyricsService.isLyricsExists(lyrics.getAuthor(),lyrics.getTitle());
-
 
         if (lyricsExists) {
             bindingResult
@@ -61,6 +58,7 @@ public class LyricsUploadController {
             User user = userService.findUserByEmail(auth.getName());
 
             lyrics.setUser(user);
+
             //ITT HATALMAS SZAKMAI SZÓCSATÁT VÍVOTT RICHÁRD ÉS VILMOS. - SZAKMAIFELJEGYZŐ MÁRTON ÚR
             lyricsService.saveLyrics(lyrics);
             modelAndView.addObject("successMessage", "Lyrics has been added to the DB successfully");

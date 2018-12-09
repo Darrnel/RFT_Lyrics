@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Lyrics {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "lyrics_id")
     private long id;
 
@@ -14,7 +14,8 @@ public class Lyrics {
     private String album;
     private String title;
 
-    @Column(columnDefinition = "TEXT")
+    //@Column(columnDefinition = "TEXT")
+    @Lob
     private String lyrics;
 
     private int voteCounter;
