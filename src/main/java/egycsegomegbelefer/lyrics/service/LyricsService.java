@@ -27,6 +27,11 @@ public class LyricsService{
         return lyricsRepository.findAllByUserId(id);
     }
 
+    //lyrics-list-test
+    public Lyrics findLyricsByLyricsId(long id){
+        return lyricsRepository.findById(id);
+    }
+
     public Lyrics saveLyrics(Lyrics lyrics){
 
         return lyricsRepository.save(lyrics);

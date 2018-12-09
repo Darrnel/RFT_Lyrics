@@ -24,6 +24,10 @@ public interface LyricsRepository extends JpaRepository<Lyrics, Long> {
 
     List<Lyrics> findAllByUserId(long id);
 
+    //lyrics-list-test
+    Lyrics findById(long id);
+
+
     @Query(value = "SELECT count(*) from lyrics where author=? and title=?",nativeQuery = true)
     int findByAuthorAndTitle(String author, String title);
 
