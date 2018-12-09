@@ -54,23 +54,20 @@
 				<div class="author_album_title_container">
 					<div class="details">
 						<span>Author:</span>
-						<span id="Author"></span>
+						<span id="Author" th:utext="${author}">Nem sikerült betölteni a dalszerzőt :(</span>
 					</div>
 					<div class="details">
 						<span>Album:</span>
-						<span id="Album"></span>
+						<span id="Album" th:utext="${album}">Nem sikerült betölteni az albumot :(</span>
 					</div>
 					<div class="details">
 						<span>Title:</span>
-						<span id="Title"></span>
+						<span id="Title" th:utext="${title}">Nem sikerült betölteni a zenecímet :(</span>
 					</div>
 				</div>
 				<div class="lyrics">
-					<p>
-						DANCE DANCE,
-						DANCE 
-						dubudubududubud,
-						
+					<p th:utext="${lyricstext}">
+						Nem sikerült betölteni a dalszöveget :(
 					</p>
 				</div>
 			</div>
