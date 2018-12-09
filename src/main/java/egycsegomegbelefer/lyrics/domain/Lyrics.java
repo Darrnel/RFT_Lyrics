@@ -1,12 +1,22 @@
 package egycsegomegbelefer.lyrics.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
+@SequenceGenerator(name="LYRICS_SEQ", sequenceName="lyrics_sequence")
 public class Lyrics {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator="LYRICS_SEQ")
     @Column(name = "lyrics_id")
     private long id;
 
@@ -15,26 +25,13 @@ public class Lyrics {
     private String title;
 
     //@Column(columnDefinition = "TEXT")
-    @Lob
-    private String lyrics;
+    private String lyricstext;
 
     private int voteCounter;
 
     @ManyToOne
     @JoinTable(name = "lyrics_user", joinColumns = @JoinColumn(name = "lyrics_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
     private User user;
-
-    public Lyrics(){
-
-    }
-    public Lyrics(String author, String album, String title, String lyrics, String uploaderID, int voteCounter, User user) {
-        this.author = author;
-        this.album = album;
-        this.title = title;
-        this.lyrics = lyrics;
-        this.voteCounter = voteCounter;
-        this.user = user;
-    }
 
     public long getId() {
         return id;
@@ -52,8 +49,8 @@ public class Lyrics {
         return title;
     }
 
-    public String getLyrics() {
-        return lyrics;
+    public String getLyricstext() {
+        return lyricstext;
     }
 
     public int getVoteCounter() {
@@ -76,8 +73,8 @@ public class Lyrics {
         this.title = title;
     }
 
-    public void setLyrics(String lyrics) {
-        this.lyrics = lyrics;
+    public void setLyricstext(String lyrics) {
+        this.lyricstext = lyrics;
     }
 
     public void setVoteCounter(int voteCounter) {
@@ -90,11 +87,6 @@ public class Lyrics {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    @Override
-    public String toString() {
-        return "Lyrics{" + "id=" + id + ", author=" + author + ", album=" + album + ", title=" + title + ", lyrics=" + lyrics + ", voteCounter=" + voteCounter + "user: " + user.getUserName() +'}';
     }
 }
 

@@ -17,11 +17,12 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@SequenceGenerator(name="USER_SEQ", sequenceName="user_sequence")
 @Table(name = "user")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator="USER_SEQ")
     @Column(name = "user_id")
     private long id;
 
