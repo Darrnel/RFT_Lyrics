@@ -54,7 +54,8 @@
         </div>
     </div>
     <div id="profile_content">
-        <h3 id="welcome_h1">Welcome userName!</h3>
+        <h3 id="welcome_h1">Welcome:</h3>
+        <h3 id="welcome_h1" th:text="${userName}"></h3>
         <div id="profile_div">
             <img id="profile_picture" th:src="@{/images/default_picture.png}"/>
             <table id="user_table">
