@@ -30,7 +30,9 @@ public class ShowLyricsController {
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             User user = userService.findUserByEmail(auth.getName());
             modelAndView.addObject("userName", user.getUserName());
-        }catch (NullPointerException e){}
+        }catch (NullPointerException e){
+            System.out.println(e);
+        }
 
         //lyrics-list-test
         Lyrics showLyrics = lyricsService.findLyricsByLyricsId(lyrics.getId());
