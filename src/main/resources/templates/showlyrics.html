@@ -4,14 +4,14 @@
 	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 	<title>Lyrics</title>
-	<link rel="stylesheet" type="text/css" href="css/showlyrics.css">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/showlyrics.css}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 	<div id="topline"></div>
 	<div id="page_container">
 		<header id="header">
-			<div id="logo"><a th:href="@{/}"><img th:src="/images/logo.png"/></a></div>
+			<div id="logo"><a th:href="@{/}"><img th:src="@{/images/logo.png}"/></a></div>
 			<div id="header_content">
 				<div id="menu_content">
 					<!-- TÖBB GOMB KELL !!!!!!!!!!!!!!!-->
@@ -54,15 +54,15 @@
 				<div class="author_album_title_container">
 					<div class="details">
 						<span>Author:</span>
-						<span id="Author" th:utext="${author}">Nem sikerült betölteni a dalszerzőt :(</span>
+						<span th:utext="${author}">Nem sikerült betölteni a dalszerzőt :(</span>
 					</div>
 					<div class="details">
 						<span>Album:</span>
-						<span id="Album" th:utext="${album}">Nem sikerült betölteni az albumot :(</span>
+						<span th:utext="${album}">Nem sikerült betölteni az albumot :(</span>
 					</div>
 					<div class="details">
 						<span>Title:</span>
-						<span id="Title" th:utext="${title}">Nem sikerült betölteni a zenecímet :(</span>
+						<span th:utext="${title}">Nem sikerült betölteni a zenecímet :(</span>
 					</div>
 				</div>
 				<div class="lyrics">

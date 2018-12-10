@@ -30,7 +30,6 @@ public class Lyrics {
     private int voteCounter;
 
     @ManyToOne
-    @JoinTable(name = "lyrics_user", joinColumns = @JoinColumn(name = "lyrics_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
     private User user;
 
     public long getId() {
@@ -88,6 +87,7 @@ public class Lyrics {
     public void setUser(User user) {
         this.user = user;
     }
+
 }
 
 

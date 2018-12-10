@@ -2,7 +2,7 @@ body{
 	background-color: white;
 	color: black;
 	font-family: Arial;
-	min-width: 1000px;
+	min-width: 1200px;
 	text-shadow: 0.5px 0.5px 0.5px white;
 }
 a{
@@ -15,9 +15,6 @@ button {
 }
 div{
 	display: block;
-}
-input{
-	background-color: #f1f1f1;
 }
 #page_container{
 	position: relative;
@@ -144,7 +141,6 @@ a.loginBtn, a.regBtn{
 #radio_buttons{
 	display: inline-block;
 	position: relative;
-	padding-left: 30px;
 }
 input:checked{
 	background-color: orange;
@@ -158,4 +154,19 @@ input:checked{
 }
 a:hover {
     opacity:0.8;
+}
+#search_form{
+	display: flex;
+	width: 100%;
+}
+#search_input{
+	color: grey;
+	font-weight: bold;
+	font-size: 17px;
+	height: 60px;
+	padding-left: 10px;
+	margin: 5px 0 5px 10px;
+	width: 60%;
+	background-color: rgba(255, 165, 0, 0.8);
+	border-radius: 10px;
 }

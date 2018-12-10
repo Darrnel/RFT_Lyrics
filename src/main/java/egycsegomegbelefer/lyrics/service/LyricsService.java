@@ -32,8 +32,13 @@ public class LyricsService{
         return lyricsRepository.findById(id);
     }
 
-    public Lyrics saveLyrics(Lyrics lyrics){
+    public Lyrics findAuthor(String author){
 
+        return lyricsRepository.findByAuthor(author);
+    }
+
+    public Lyrics saveLyrics(Lyrics lyrics){
+        lyrics.setLyricstext(lyrics.getLyricstext().replace("\n", "<br/>"));
         return lyricsRepository.save(lyrics);
     }
     /*public void saveLyrics(Lyrics lyrics) {

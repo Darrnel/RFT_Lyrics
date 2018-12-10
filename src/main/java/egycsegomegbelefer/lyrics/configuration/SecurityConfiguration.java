@@ -51,6 +51,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/toplist").permitAll()
                 .antMatchers("/ranking").permitAll()
                 .antMatchers("/showlyrics").permitAll()
+                .antMatchers("/search").permitAll()
                 .antMatchers("/admin/**").hasAuthority("ADMIN").anyRequest()
 
                 .authenticated().and().csrf().disable().formLogin()
