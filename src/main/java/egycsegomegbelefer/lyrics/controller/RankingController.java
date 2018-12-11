@@ -1,5 +1,6 @@
 package egycsegomegbelefer.lyrics.controller;
 
+import egycsegomegbelefer.lyrics.domain.Lyrics;
 import egycsegomegbelefer.lyrics.domain.User;
 import egycsegomegbelefer.lyrics.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class RankingController {
             User user = userService.findUserByEmail(auth.getName());
             modelAndView.addObject("userName", user.getUserName());
         }catch (NullPointerException e){}
+
+        Lyrics lyrics = new Lyrics();
+        modelAndView.addObject("lyrics", lyrics);
 
         modelAndView.setViewName("ranking");
         return modelAndView;

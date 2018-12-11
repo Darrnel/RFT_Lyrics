@@ -34,6 +34,9 @@ public class ProfileController {
         modelAndView.addObject("userName", user.getUserName());
         modelAndView.addObject("rang", user.getRang());
 
+        Lyrics lyrics = new Lyrics();
+        modelAndView.addObject("lyrics", lyrics);
+
         modelAndView.setViewName("profile");
         return modelAndView;
     }

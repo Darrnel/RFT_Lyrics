@@ -277,3 +277,17 @@ table td:first-child::before{
 	counter-increment: section;
   	content: counter(section);
  }
+#search_form{
+	display: flex;
+	width: 100%;
+}
+#search_input{
+	color: grey;
+	font-weight: bold;
+	font-size: 17px;
+	padding-left: 10px;
+	margin: 5px 0 5px 10px;
+	width: 60%;
+	background-color: rgba(255, 165, 0, 0.8);
+	border-radius: 10px;
+}

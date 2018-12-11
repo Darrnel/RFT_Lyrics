@@ -10,49 +10,7 @@
 <body>
 <div id="topline"></div>
 <div id="page_container">
-    <header id="header">
-        <div id="logo"><img th:src="@{/images/logo.png}"/></div>
-        <div id="header_content">
-            <div id="menu_content">
-                <a class="menubar" th:href="@{/lyricsupload}">Lyrics upload</a>
-                <a class="menubar" th:href="@{/toplist}">Toplist</a>
-                <a class="menubar" th:href="@{/ranking}" >Ranking</a>
-            </div>
-            <div sec:authorize="!isAuthenticated()">
-                <a th:href="@{/login}" class="loginBtn">Log In</a>
-                <a th:href="@{/registration}" class="regBtn">Sign Up</a>
-            </div>
-            <div id="loggedIn" sec:authorize="isAuthenticated()">
-                <a th:href="@{/profile}" th:utext="${userName}" class="loginBtn">Profile</a>
-                <a th:href="@{/logout}" class="regBtn">LogOut</a>
-            </div>
-        </div>
-    </header>
-    <div id="searchbar">
-        <div id="searchbar_content">
-            <input id="search" type="text" name="search" autocomplete="off" placeholder="Search for lyrics or artist...">
-            <div id="radio_buttons">
-                <div>
-                    <label class="radio_button_style">
-                        <input type="radio" name="qtype" id="radio1" value="1" checked="checked">
-                        <span>Artist</span>
-                    </label>
-                </div>
-                <div>
-                    <label class="radio_button_style">
-                        <input type="radio" name="qtype" id="radio2" value="2">
-                        <span>Lyrics</span>
-                    </label>
-                </div>
-                <div>
-                    <label class="radio_button_style">
-                        <input type="radio" name="qtype" id="radio3" value="3">
-                        <span>Album</span>
-                    </label>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div th:replace="fragments/header :: header"></div>
     <div id="ranking_content">
         <h3 id="welcome_h1">Ranking of Lyrics!</h3>
         <div id="ranking_div">
