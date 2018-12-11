@@ -137,14 +137,7 @@ a:hover {
 /*EDDIG MI ÍRTUK*/
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
-	width: 91%;
-	padding: 15px;
-	margin: 5px 0 22px 0;
-	display: block;
-	border-radius: 5px;
-	background: #f1f1f1;
-}
+
 
 /* Add a background color when the inputs get focus */
 input[type=text]:focus, input[type=password]:focus {

@@ -141,6 +141,7 @@ a.loginBtn, a.regBtn{
 #radio_buttons{
 	display: inline-block;
 	position: relative;
+	padding-left: 30px;
 }
 input:checked{
 	background-color: orange;
