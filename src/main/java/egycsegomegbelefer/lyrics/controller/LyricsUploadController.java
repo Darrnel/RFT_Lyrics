@@ -56,6 +56,7 @@ public class LyricsUploadController {
         } else {
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             User user = userService.findUserByEmail(auth.getName());
+            modelAndView.addObject("userName",user.getUserName());
 
             lyrics.setUser(user);
             lyrics.setVoteCounter(0);

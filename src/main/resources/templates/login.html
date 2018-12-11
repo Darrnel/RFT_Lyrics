@@ -10,6 +10,7 @@
 	<div id="topline"></div>
 	<div id="page_container">
 		<div th:replace="fragments/login_reg :: header"></div>
+
 		<!--BEJELENTKEZŐ PANEL-->
 		<div id="loginForm" class="modalLogin">
 			<form th:action="@{/login}" method="POST" class="modal-content">
@@ -31,5 +32,4 @@
 		</div>
 	</div>
 </body>
-
 </html>

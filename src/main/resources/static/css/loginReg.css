@@ -2,7 +2,8 @@ body{
 	background-color: white;
 	color: black;
 	font-family: Arial;
-	min-width: 1000px;
+	min-width: 1200px;
+	text-shadow: 0.5px 0.5px 0.5px white;
 }
 a{
 	text-decoration: none;
@@ -74,6 +75,8 @@ a.loginBtn{
 a.regBtn{
 	padding: 10px 4px 10px 4px; 
 	background-color: orange;
+	width: 70px;
+	height: 40px;
 	color: white;
 	box-sizing: border-box;
 	border-radius: 7px;

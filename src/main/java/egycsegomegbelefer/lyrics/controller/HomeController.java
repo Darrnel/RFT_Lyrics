@@ -40,6 +40,11 @@ public class HomeController {
     @RequestMapping(value = {"/search"}, method = RequestMethod.POST)
     public ModelAndView search(Lyrics lyrics){
         ModelAndView modelAndView = new ModelAndView();
+        try {
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            User user = userService.findUserByEmail(auth.getName());
+            modelAndView.addObject("userName", user.getUserName());
+        }catch (NullPointerException e){}
         Lyrics showLyrics = lyricsService.findAuthor(lyrics.getAuthor());
 
         modelAndView.addObject("author", showLyrics.getAuthor());
