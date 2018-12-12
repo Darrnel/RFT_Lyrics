@@ -195,7 +195,7 @@ button:hover {
 .modalLogin,.modalReg {
 	display: block; /* Hidden by default */
 	position: relative; /* Stay in place */
-	z-index: -1;
+	z-index: 0;
 	left:0;
 	top:30%;
 	width: 100%;

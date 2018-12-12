@@ -30,8 +30,11 @@ public class HomeController {
             modelAndView.addObject("userName", user.getUserName());
         }catch (NullPointerException e){}
 
+        String activeRadioButton = "author";
+
         Lyrics lyrics = new Lyrics();
         modelAndView.addObject("lyrics", lyrics);
+        modelAndView.addObject("activeRadio", activeRadioButton);
 
         modelAndView.setViewName("index");
         return modelAndView;
@@ -45,12 +48,32 @@ public class HomeController {
             User user = userService.findUserByEmail(auth.getName());
             modelAndView.addObject("userName", user.getUserName());
         }catch (NullPointerException e){}
-        Lyrics showLyrics = lyricsService.findAuthor(lyrics.getAuthor());
 
-        modelAndView.addObject("author", showLyrics.getAuthor());
-        modelAndView.addObject("album", showLyrics.getAlbum());
-        modelAndView.addObject("title", showLyrics.getTitle());
-        modelAndView.addObject("lyricstext", showLyrics.getLyricstext());
+        String activeRadioButton = "author";
+
+        if(activeRadioButton == "author"){Lyrics showLyrics = lyricsService.findAuthor(lyrics.getAuthor());
+            modelAndView.addObject("author", showLyrics.getAuthor());
+            modelAndView.addObject("album", showLyrics.getAlbum());
+            modelAndView.addObject("title", showLyrics.getTitle());
+            modelAndView.addObject("lyricstext", showLyrics.getLyricstext());
+
+        }
+
+        if(activeRadioButton == "title"){Lyrics showLyrics = lyricsService.findTitle(lyrics.getTitle());
+            modelAndView.addObject("author", showLyrics.getAuthor());
+            modelAndView.addObject("album", showLyrics.getAlbum());
+            modelAndView.addObject("title", showLyrics.getTitle());
+            modelAndView.addObject("lyricstext", showLyrics.getLyricstext());
+        }
+
+        if(activeRadioButton == "lyrics"){Lyrics showLyrics = lyricsService.findLyricstext(lyrics.getLyricstext());
+            modelAndView.addObject("author", showLyrics.getAuthor());
+            modelAndView.addObject("album", showLyrics.getAlbum());
+            modelAndView.addObject("title", showLyrics.getTitle());
+            modelAndView.addObject("lyricstext", showLyrics.getLyricstext());
+        }
+
+
 
         modelAndView.setViewName("showlyrics");
         return modelAndView;

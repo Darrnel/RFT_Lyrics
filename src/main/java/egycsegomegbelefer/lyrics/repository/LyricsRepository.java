@@ -19,8 +19,11 @@ public interface LyricsRepository extends JpaRepository<Lyrics, Long> {
     @Query(value="SELECT * from lyrics where author=?",nativeQuery = true)
     Lyrics findByAuthor(String author);
 
-    @Query(value="SELECT title from lyrics where title=?",nativeQuery = true)
-    String findByTitle(String title);
+    @Query(value="SELECT * from lyrics where title=?",nativeQuery = true)
+    Lyrics findByTitle(String title);
+
+    @Query(value="SELECT * from lyrics where lyricstext like '%?%' ",nativeQuery = true)
+    Lyrics findByLyricstext(String lyricstext);
 
     List<Lyrics> findAllByUserId(long id);
 

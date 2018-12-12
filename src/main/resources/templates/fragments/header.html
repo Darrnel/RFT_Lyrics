@@ -25,19 +25,19 @@
                 <div id="radio_buttons">
                     <div>
                         <label class="radio_button_style">
-                            <input type="radio" name="qtype" id="radio1" value="1" checked="checked">
+                            <input th:field="*{activeRadio}" type="radio" name="qtype" id="radio1" value="author" checked="checked">
                             <span>Artist</span>
                         </label>
                     </div>
                     <div>
                         <label class="radio_button_style">
-                            <input type="radio" name="qtype" id="radio2" value="2">
+                            <input th:field="*{activeRadio}" type="radio" name="qtype" id="radio2" value="title">
                             <span>Title</span>
                         </label>
                     </div>
                     <div>
                         <label class="radio_button_style">
-                            <input type="radio" name="qtype" id="radio3" value="3">
+                            <input th:field="*{activeRadio}" type="radio" name="qtype" id="radio3" value="lyrics">
                             <span>Lyrics</span>
                         </label>
                     </div>

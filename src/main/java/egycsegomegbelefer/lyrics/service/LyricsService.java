@@ -23,6 +23,8 @@ public class LyricsService{
         return lyricsRepository.findByAuthorAndTitle(author,title) == 1 ? true : false;
     }
 
+
+
     public List<Lyrics> findAllLyricsByUserId(long id){
         return lyricsRepository.findAllByUserId(id);
     }
@@ -37,13 +39,21 @@ public class LyricsService{
         return lyricsRepository.findByAuthor(author);
     }
 
+    public Lyrics findTitle(String title){
+
+        return lyricsRepository.findByTitle(title);
+    }
+
+    public Lyrics findLyricstext(String lyricstext){
+
+        return lyricsRepository.findByLyricstext(lyricstext);
+    }
+
     public Lyrics saveLyrics(Lyrics lyrics){
         lyrics.setLyricstext(lyrics.getLyricstext().replace("\n", "<br/>"));
         return lyricsRepository.save(lyrics);
     }
-    /*public void saveLyrics(Lyrics lyrics) {
-        lyricsRepository.save(lyrics);
-    }*/
+
 
 }
 
