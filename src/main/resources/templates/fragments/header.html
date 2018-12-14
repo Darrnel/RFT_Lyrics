@@ -21,23 +21,23 @@
     <div id="searchbar">
         <div id="searchbar_content">
             <form th:action="@{/search}" th:object="${lyrics}" method="post" id="search_form">
-                <input  type="text" th:field="*{author}" name="search" autocomplete="off" placeholder="Search for lyrics or artist..." id="search_input">
+                <input  type="text" th:field="*{searchText}" name="search" autocomplete="off" placeholder="Search for lyrics or artist..." id="search_input">
                 <div id="radio_buttons">
                     <div>
                         <label class="radio_button_style">
-                            <input th:field="*{activeRadio}" type="radio" name="qtype" id="radio1" value="author" checked="checked">
+                            <input th:field="*{activeRadio}" type="radio" id="radio1" value="author" checked="checked">
                             <span>Artist</span>
                         </label>
                     </div>
                     <div>
                         <label class="radio_button_style">
-                            <input th:field="*{activeRadio}" type="radio" name="qtype" id="radio2" value="title">
+                            <input th:field="*{activeRadio}" type="radio" id="radio2" value="title">
                             <span>Title</span>
                         </label>
                     </div>
                     <div>
                         <label class="radio_button_style">
-                            <input th:field="*{activeRadio}" type="radio" name="qtype" id="radio3" value="lyrics">
+                            <input th:field="*{activeRadio}" type="radio" id="radio3" value="lyrics">
                             <span>Lyrics</span>
                         </label>
                     </div>

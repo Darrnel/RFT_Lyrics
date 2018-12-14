@@ -191,12 +191,7 @@ button:hover {
 .container {
 	padding: 16px;
 }
-.modalLogin{
-	height: 500px;
-}
-.modalReg{
-	height: 520px;
-}
+
 .modalLogin,.modalReg {
 	display: flex; /* Hidden by default */
 	position: fixed; /* Stay in place */
@@ -204,6 +199,12 @@ button:hover {
 	top:20%;
 	width: 100%;
 	overflow: auto; /* Enable scroll if needed */
+}
+.modalLogin{
+    height: 520px;
+}
+.modalReg{
+    height: 550px;
 }
 
 /* Modal Content/Box */

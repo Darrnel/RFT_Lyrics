@@ -27,6 +27,10 @@ public class Lyrics {
     //@Column(columnDefinition = "TEXT")
     private String lyricstext;
 
+    private String activeRadio = "author";
+
+    private String searchText;
+
     private int voteCounter;
 
     @ManyToOne
@@ -88,6 +92,21 @@ public class Lyrics {
         this.user = user;
     }
 
+    public String getActiveRadio() {
+        return activeRadio;
+    }
+
+    public void setActiveRadio(String activeRadio) {
+        this.activeRadio = activeRadio;
+    }
+
+    public String getSearchText() {
+        return searchText;
+    }
+
+    public void setSearchText(String searchText) {
+        this.searchText = searchText;
+    }
 }
 
 
