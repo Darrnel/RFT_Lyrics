@@ -34,19 +34,19 @@ public class LyricsService{
         return lyricsRepository.findById(id);
     }
 
-    public Lyrics findAuthor(String author){
+    public List<Lyrics> findAuthor(String author){
 
-        return lyricsRepository.findByAuthor(author);
+        return lyricsRepository.findByAuthorList(author);
     }
 
-    public Lyrics findTitle(String title){
+    public List<Lyrics> findTitle(String title){
 
-        return lyricsRepository.findByTitle(title);
+        return lyricsRepository.findByTitleList(title);
     }
 
-    public Lyrics findLyricstext(String lyricstext){
+    public List<Lyrics> findLyricstext(String lyricstext){
 
-        return lyricsRepository.findByLyricstext(lyricstext);
+        return lyricsRepository.findByLyricstextList(lyricstext);
     }
 
     public Lyrics saveLyrics(Lyrics lyrics){

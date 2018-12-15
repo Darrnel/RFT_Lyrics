@@ -13,24 +13,24 @@
 		<div th:replace="fragments/header :: header"></div>
 		<div id="main_content">
 			<div class="lyrics_container">
-				<div class="author_album_title_container">
+				<div class="author_album_title_container" th:each="lyrics : ${lyricses}">
 					<div class="details">
 						<span>Author:</span>
-						<span th:utext="${author}">Nem sikerült betölteni a dalszerzőt :(</span>
+						<span th:utext="${lyrics.getAuthor()}">Nem sikerült betölteni a dalszerzőt :(</span>
 					</div>
 					<div class="details">
 						<span>Album:</span>
-						<span th:utext="${album}">Nem sikerült betölteni az albumot :(</span>
+						<span th:utext="${lyrics.getAlbum()}">Nem sikerült betölteni az albumot :(</span>
 					</div>
 					<div class="details">
 						<span>Title:</span>
-						<span th:utext="${title}">Nem sikerült betölteni a zenecímet :(</span>
+						<span th:utext="${lyrics.getTitle()}">Nem sikerült betölteni a zenecímet :(</span>
 					</div>
-				</div>
-				<div class="lyrics">
-					<p th:utext="${lyricstext}">
-						Nem sikerült betölteni a dalszöveget :(
-					</p>
+					<div class="lyrics">
+						<p th:utext="${lyrics.getLyricstext()}">
+							Nem sikerült betölteni a dalszöveget :(
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
