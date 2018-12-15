@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
 public class HomeController {
 
@@ -51,7 +53,7 @@ public class HomeController {
 
         String activeRadioButton = lyrics.getActiveRadio();
         String searchText = lyrics.getSearchText();
-        Lyrics showLyrics = lyricsService.findAuthor(searchText);
+        List<Lyrics> showLyrics = lyricsService.findAuthor(searchText);
 
         if(activeRadioButton.equals("author")){
              showLyrics = lyricsService.findAuthor(searchText);
@@ -63,10 +65,7 @@ public class HomeController {
             showLyrics = lyricsService.findLyricstext(searchText);
         }
 
-        modelAndView.addObject("author", showLyrics.getAuthor());
-        modelAndView.addObject("album", showLyrics.getAlbum());
-        modelAndView.addObject("title", showLyrics.getTitle());
-        modelAndView.addObject("lyricstext", showLyrics.getLyricstext());
+        modelAndView.addObject("lyricses", showLyrics);
 
         modelAndView.setViewName("showlyrics");
         return modelAndView;
