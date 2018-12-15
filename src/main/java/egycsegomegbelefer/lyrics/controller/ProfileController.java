@@ -41,21 +41,31 @@ public class ProfileController {
         return modelAndView;
     }
 
-    /*
-    @RequestMapping(value = "/profile", method = RequestMethod.POST)
+
+    @RequestMapping(value = "/showlyrics", method = RequestMethod.POST)
     public ModelAndView showLyrics (@Valid Lyrics lyrics){
         ModelAndView modelAndView = new ModelAndView();
 
+        try {
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            User user = userService.findUserByEmail(auth.getName());
+            modelAndView.addObject("userName", user.getUserName());
+        }catch (NullPointerException e){}
+
         Lyrics showLyrics = lyricsService.findLyricsByLyricsId(lyrics.getId());
 
+        System.out.println("!!! HALO HALO TESZT TESZT TESZT HALO !!!" + showLyrics.getId() + showLyrics.getAuthor() + showLyrics.getAlbum() + showLyrics.getTitle() + showLyrics.getLyricstext());
         modelAndView.addObject("id", showLyrics.getId());
         modelAndView.addObject("author", showLyrics.getAuthor());
         modelAndView.addObject("album", showLyrics.getAlbum());
         modelAndView.addObject("title", showLyrics.getTitle());
         modelAndView.addObject("lyricstext", showLyrics.getLyricstext());
+        System.out.println("!!! HALO HALO TESZT TESZT TESZT HALO !!!" + showLyrics.getId() + showLyrics.getAuthor() + showLyrics.getAlbum() + showLyrics.getTitle() + showLyrics.getLyricstext());
+
+        modelAndView.setViewName("showlyrics");
 
         return modelAndView;
 
     }
-    */
+
 }
