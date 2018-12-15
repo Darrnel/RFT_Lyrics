@@ -2,6 +2,7 @@ body{
 	background-color: white;
 	color: black;
 	font-family: Arial;
+	height: auto;
 	min-width: 1000px;
 	text-shadow: 0.5px 0.5px 0.5px white;
 }
@@ -22,6 +23,7 @@ input{
 #page_container{
 	position: relative;
 	width: 60%;
+	height: auto;
 	min-height: 100%;
 	margin: 0 auto 0 auto;
 }
@@ -143,10 +145,11 @@ a:hover {
     opacity:0.8;
 }
 .lyrics_container{
+	text-align: center;
 	display: block;
-	width: 300px;
-	margin: 10px auto 10px auto;
-	position: fixed;
+	width: 500px;
+	margin: 100px auto 10px auto;
+	position: relative;
 	top:30%;
 }
 .author_album_title_container .details{
@@ -169,4 +172,7 @@ a:hover {
 	width: 60%;
 	background-color: rgba(255, 165, 0, 0.8);
 	border-radius: 10px;
+}
+.author_album_title_container{
+	margin: 40px auto 40px auto;
 }

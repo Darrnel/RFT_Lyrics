@@ -65,7 +65,6 @@ public class ProfileController {
         modelAndView.setViewName("showlyrics");
 
         return modelAndView;
-
     }
 
 }

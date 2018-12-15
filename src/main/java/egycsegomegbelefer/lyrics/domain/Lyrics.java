@@ -24,7 +24,7 @@ public class Lyrics {
     private String album;
     private String title;
 
-    //@Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT")
     private String lyricstext;
 
     private String activeRadio = "author";
