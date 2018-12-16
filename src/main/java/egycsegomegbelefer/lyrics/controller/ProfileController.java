@@ -28,21 +28,21 @@ public class ProfileController {
     public ModelAndView profile() {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        System.out.println(auth.getPrincipal());
         User user = userService.findUserByEmail(auth.getName());
         modelAndView.addObject("lyricses", lyricsService.findAllLyricsByUserId(user.getId()));
         modelAndView.addObject("userName", user.getUserName());
         modelAndView.addObject("rang", user.getRang());
 
+        System.out.println("TESZTÜZI: ------------------------- > "+ user.getRang());
+
         Lyrics lyrics = new Lyrics();
         modelAndView.addObject("lyrics", lyrics);
-
         modelAndView.setViewName("profile");
         return modelAndView;
     }
 
 
-    @RequestMapping(value = "/showlyrics", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/showlyrics", method = RequestMethod.POST)
     public ModelAndView showLyrics (@Valid Lyrics lyrics){
         ModelAndView modelAndView = new ModelAndView();
 
@@ -54,17 +54,15 @@ public class ProfileController {
 
         Lyrics showLyrics = lyricsService.findLyricsByLyricsId(lyrics.getId());
 
-        System.out.println("!!! HALO HALO TESZT TESZT TESZT HALO !!!" + showLyrics.getId() + showLyrics.getAuthor() + showLyrics.getAlbum() + showLyrics.getTitle() + showLyrics.getLyricstext());
         modelAndView.addObject("id", showLyrics.getId());
         modelAndView.addObject("author", showLyrics.getAuthor());
         modelAndView.addObject("album", showLyrics.getAlbum());
         modelAndView.addObject("title", showLyrics.getTitle());
         modelAndView.addObject("lyricstext", showLyrics.getLyricstext());
-        System.out.println("!!! HALO HALO TESZT TESZT TESZT HALO !!!" + showLyrics.getId() + showLyrics.getAuthor() + showLyrics.getAlbum() + showLyrics.getTitle() + showLyrics.getLyricstext());
 
         modelAndView.setViewName("showlyrics");
 
         return modelAndView;
-    }
+    }*/
 
 }

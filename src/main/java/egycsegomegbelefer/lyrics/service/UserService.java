@@ -1,5 +1,6 @@
 package egycsegomegbelefer.lyrics.service;
 
+import egycsegomegbelefer.lyrics.domain.Rang;
 import egycsegomegbelefer.lyrics.domain.Role;
 import egycsegomegbelefer.lyrics.domain.User;
 import egycsegomegbelefer.lyrics.repository.LyricsRepository;
@@ -50,6 +51,26 @@ public class UserService {
         Role userRole = roleRepository.findByRole("USER");
         user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
         return userRepository.save(user);
+    }
+    public User incRang(User user){
+
+        if(user.getRang() == Rang.UJONC)
+            user.setRang(Rang.KEZDO);
+        else if(user.getRang() == Rang.KEZDO)
+            user.setRang(Rang.TAPASZTALT);
+        else if(user.getRang() == Rang.TAPASZTALT)
+            user.setRang(Rang.LEGJOBB);
+        else
+            user.setRang(Rang.GOD);
+
+        return user;
+    }
+
+    public boolean isLevelUp(User user){
+        if(user.getLyricsCounter()+1 == 10 || user.getLyricsCounter()+1 == 30 || user.getLyricsCounter()+1 == 50 || user.getLyricsCounter()+1 == 70)
+            return true;
+        else
+            return false;
     }
 
     public List<User> findTop10user(){

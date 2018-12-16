@@ -17,7 +17,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@SequenceGenerator(name="USER_SEQ", sequenceName="user_sequence")
+@SequenceGenerator(name="USER_SEQ", sequenceName="user_sequence", allocationSize = 1)
 @Table(name = "user")
 public class User {
 
@@ -42,6 +42,8 @@ public class User {
 
     //TODO: ANNOTÁCIO
     private Rang rang;
+
+    private int lyricsCounter;
 
     //TODO: ANNOTÁCIO
     @OneToMany(mappedBy = "user")
@@ -116,5 +118,28 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public int getLyricsCounter() {
+        return lyricsCounter;
+    }
+
+    public void setLyricsCounter(int lyricsCounter) {
+        this.lyricsCounter = lyricsCounter;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", rang=" + rang +
+                ", lyricsCounter=" + lyricsCounter +
+                ", lyrics=" + lyrics +
+                ", active=" + active +
+                ", roles=" + roles +
+                '}';
     }
 }

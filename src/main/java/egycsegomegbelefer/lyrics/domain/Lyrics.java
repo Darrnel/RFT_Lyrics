@@ -12,7 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@SequenceGenerator(name="LYRICS_SEQ", sequenceName="lyrics_sequence")
+@SequenceGenerator(name="LYRICS_SEQ", sequenceName="lyrics_sequence", allocationSize = 1)
 public class Lyrics {
 
     @Id
@@ -106,6 +106,21 @@ public class Lyrics {
 
     public void setSearchText(String searchText) {
         this.searchText = searchText;
+    }
+
+    @Override
+    public String toString() {
+        return "Lyrics{" +
+                "id=" + id +
+                ", author='" + author + '\'' +
+                ", album='" + album + '\'' +
+                ", title='" + title + '\'' +
+                ", lyricstext='" + lyricstext + '\'' +
+                ", activeRadio='" + activeRadio + '\'' +
+                ", searchText='" + searchText + '\'' +
+                ", voteCounter=" + voteCounter +
+                ", user=" + user +
+                '}';
     }
 }
 
