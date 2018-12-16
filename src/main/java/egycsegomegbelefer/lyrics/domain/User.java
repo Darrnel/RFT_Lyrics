@@ -43,6 +43,8 @@ public class User {
     //TODO: ANNOTÁCIO
     private Rang rang;
 
+    private int lyricsCounter;
+
     //TODO: ANNOTÁCIO
     @OneToMany(mappedBy = "user")
     private List<Lyrics> lyrics;
@@ -116,5 +118,28 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public int getLyricsCounter() {
+        return lyricsCounter;
+    }
+
+    public void setLyricsCounter(int lyricsCounter) {
+        this.lyricsCounter = lyricsCounter;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", rang=" + rang +
+                ", lyricsCounter=" + lyricsCounter +
+                ", lyrics=" + lyrics +
+                ", active=" + active +
+                ", roles=" + roles +
+                '}';
     }
 }
