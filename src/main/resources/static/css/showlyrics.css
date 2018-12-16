@@ -176,3 +176,36 @@ a:hover {
 .author_album_title_container{
 	margin: 40px auto 40px auto;
 }
+#show_table {
+	counter-reset: rowNum;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: sans-serif, fantasy, serif;
+	width: 100%;
+	text-shadow: 0.5px 0.5px 0.5px black;
+}
+#show_table > thead {
+	background-color: orange;
+}
+th {
+	font-size: 18px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: center;
+	color: white;
+}
+#show_table > tbody > tr:hover {
+	background-color: darkorange;
+	color: black;
+}
+#show_table tr td{
+	text-align: center;
+}
+td {
+	text-align: center;
+	padding: 8px;
+}
+#lyrics_container p{
+	text-align:center;
+	margin-bottom: 50px;
+}

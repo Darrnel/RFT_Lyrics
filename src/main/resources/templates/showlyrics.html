@@ -12,25 +12,39 @@
 	<div id="page_container">
 		<div th:replace="fragments/header :: header"></div>
 		<div id="main_content">
-			<div class="lyrics_container">
-				<div class="author_album_title_container" th:each="lyrics : ${lyricses}">
-					<div class="details">
-						<span>Author:</span>
-						<span th:utext="${lyrics.getAuthor()}">Nem sikerült betölteni a dalszerzőt :(</span>
-					</div>
-					<div class="details">
-						<span>Album:</span>
-						<span th:utext="${lyrics.getAlbum()}">Nem sikerült betölteni az albumot :(</span>
-					</div>
-					<div class="details">
-						<span>Title:</span>
-						<span th:utext="${lyrics.getTitle()}">Nem sikerült betölteni a zenecímet :(</span>
-					</div>
-					<div class="lyrics">
-						<p th:utext="${lyrics.getLyricstext()}">
-						Nem sikerült betölteni a dalszöveget :(
-						</p>
-					</div>
+			<div class="lyrics_container" th:each="lyrics : ${lyricses}">
+				<table id="show_table" frame="box">
+					<thead>
+					<th>
+						Author
+					</th>
+					<th>
+						Album
+					</th>
+					<th>
+						Title
+					</th>
+					<th>
+						Lyrics-counter
+					</th>
+					</thead>
+					<tbody>
+					<tr>
+						<td th:text="${lyrics.getAuthor()}">author
+						</td>
+						<td th:text="${lyrics.getAlbum()}">album
+						</td>
+						<td th:text="${lyrics.getTitle()}">title
+						</td>
+						<td th:text="${lyrics.getVoteCounter()}">
+							counter
+						</td>
+					</tr>
+					</tbody>
+				</table>
+				<p th:utext="${lyrics.getLyricstext()}">
+					text
+				</p>
 				</div>
 			</div>
 		</div>
