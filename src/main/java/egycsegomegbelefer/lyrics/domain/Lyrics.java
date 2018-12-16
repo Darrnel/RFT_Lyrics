@@ -12,7 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@SequenceGenerator(name="LYRICS_SEQ", sequenceName="lyrics_sequence")
+@SequenceGenerator(name="LYRICS_SEQ", sequenceName="lyrics_sequence", allocationSize = 1)
 public class Lyrics {
 
     @Id
