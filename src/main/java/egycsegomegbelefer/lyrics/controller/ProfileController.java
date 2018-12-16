@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class ProfileController {
@@ -30,10 +31,9 @@ public class ProfileController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
         modelAndView.addObject("lyricses", lyricsService.findAllLyricsByUserId(user.getId()));
+        modelAndView.addObject("user", user);
         modelAndView.addObject("userName", user.getUserName());
         modelAndView.addObject("rang", user.getRang());
-
-        System.out.println("TESZTÜZI: ------------------------- > "+ user.getRang());
 
         Lyrics lyrics = new Lyrics();
         modelAndView.addObject("lyrics", lyrics);
@@ -42,27 +42,20 @@ public class ProfileController {
     }
 
 
-    /*@RequestMapping(value = "/showlyrics", method = RequestMethod.POST)
-    public ModelAndView showLyrics (@Valid Lyrics lyrics){
+    @RequestMapping(value = "/showMyLyrics", method = RequestMethod.POST)
+    public ModelAndView showLyrics (Lyrics lyrics){
         ModelAndView modelAndView = new ModelAndView();
 
-        try {
-            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-            User user = userService.findUserByEmail(auth.getName());
-            modelAndView.addObject("userName", user.getUserName());
-        }catch (NullPointerException e){}
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByEmail(auth.getName());
+        modelAndView.addObject("userName", user.getUserName());
 
-        Lyrics showLyrics = lyricsService.findLyricsByLyricsId(lyrics.getId());
-
-        modelAndView.addObject("id", showLyrics.getId());
-        modelAndView.addObject("author", showLyrics.getAuthor());
-        modelAndView.addObject("album", showLyrics.getAlbum());
-        modelAndView.addObject("title", showLyrics.getTitle());
-        modelAndView.addObject("lyricstext", showLyrics.getLyricstext());
+        List<Lyrics> showLyrics = lyricsService.findAllLyricsByUserId(user.getId());
+        modelAndView.addObject("lyricses",  showLyrics);
 
         modelAndView.setViewName("showlyrics");
 
         return modelAndView;
-    }*/
+    }
 
 }
