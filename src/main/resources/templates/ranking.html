@@ -12,30 +12,32 @@
 <div id="page_container">
     <div th:replace="fragments/header :: header"></div>
     <div id="ranking_content">
-        <h3 id="welcome_h1">Ranking of Lyrics!</h3>
+        <h3 id="welcome_h1">TOP 10 Users<br/>by number of the uploaded lyrics</h3>
         <div id="ranking_div">
             <table id="ranking_table" frame="box">
                 <thead>
                 <th>
-                    hanyadik vagyok
+                    #
                 </th>
                 <th>
-                    user
+                    Username
                 </th>
                 <th>
-                    rang
+                    Rang
+                </th>
+                <th>
+                    Lyrics-counter
                 </th>
                 </thead>
                 <tbody>
-                <tr>
+                <tr th:each="user : ${users}">
                     <td>
-
                     </td>
-                    <td>
-                        becses neve
+                    <td th:text="${user.getUserName()}">nev
                     </td>
-                    <td>
-                        a drágalátos rangja
+                    <td th:text="${user.getRang()}">rang
+                    </td>
+                    <td th:text="${user.getLyricsCounter()}">counter
                     </td>
                 </tr>
                 </tbody>

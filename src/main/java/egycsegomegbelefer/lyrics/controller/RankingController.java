@@ -2,6 +2,7 @@ package egycsegomegbelefer.lyrics.controller;
 
 import egycsegomegbelefer.lyrics.domain.Lyrics;
 import egycsegomegbelefer.lyrics.domain.User;
+import egycsegomegbelefer.lyrics.service.LyricsService;
 import egycsegomegbelefer.lyrics.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -17,6 +18,9 @@ public class RankingController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private LyricsService lyricsService;
+
     @RequestMapping(value="/ranking", method = RequestMethod.GET)
     public ModelAndView ranking() {
         ModelAndView modelAndView = new ModelAndView();
@@ -28,6 +32,8 @@ public class RankingController {
 
         Lyrics lyrics = new Lyrics();
         modelAndView.addObject("lyrics", lyrics);
+
+        modelAndView.addObject("users",userService.findTop10user());
 
         modelAndView.setViewName("ranking");
         return modelAndView;
