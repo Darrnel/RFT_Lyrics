@@ -17,7 +17,7 @@
 		</div>
 		<div id="main_content">
 			<div id="table_container">
-				<table>
+				<table id="toplist_table">
                         <thead>
                         	<th>
                                 #
@@ -36,12 +36,12 @@
                             </th>
                         </thead>
                         <tbody>
-                        	<tr>
+                        	<tr th:each="lyricse : ${toplyricses}">
                         		<td></td>
-                        		<td>LilGxNemazalány</td>
-                        		<td class="crop">Nemvolt még albumuk</td>
-                        		<td>Unikornis</td>
-                        		<td>Végtelen</td>
+                        		<td th:utext="${lyricse.getAuthor()}">LilGxNemazalány</td>
+                        		<td th:utext="${lyricse.getAlbum()}">Nemvolt még albumuk</td>
+                        		<td th:utext="${lyricse.getTitle()}">Unikornis</td>
+                        		<td th:utext="${lyricse.getVoteCounter()}">Végtelen</td>
                         	</tr>
                         </tbody>
 				</table>

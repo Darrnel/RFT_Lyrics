@@ -54,6 +54,9 @@ public class LyricsService{
         return lyricsRepository.save(lyrics);
     }
 
+    public List<Lyrics> findPopularLyrics(){
+        return lyricsRepository.findByVoteCounter();
+    }
 
 }
 

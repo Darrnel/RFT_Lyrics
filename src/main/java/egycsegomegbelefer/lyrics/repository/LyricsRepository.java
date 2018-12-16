@@ -38,6 +38,9 @@ public interface LyricsRepository extends JpaRepository<Lyrics, Long> {
     @Query(value = "SELECT * FROM lyrics WHERE lyricstext like %?% LIMIT 10",nativeQuery = true)
     List<Lyrics> findByLyricstextList(String lyrics);
 
+    @Query(value = "SELECT * FROM lyrics ORDER BY vote_counter desc limit 10", nativeQuery = true)
+    List<Lyrics> findByVoteCounter();
+
 
     @Query(value = "SELECT count(*) from lyrics where author=? and title=?",nativeQuery = true)
     int findByAuthorAndTitle(String author, String title);

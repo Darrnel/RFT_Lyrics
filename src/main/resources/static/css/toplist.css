@@ -127,17 +127,13 @@ input:checked{
 #welcome{
 	position: relative;
 	margin-top: 50px;
-	border-bottom: 5px solid orange;
 	padding: 10px 10px 10px 10px;
 	text-align: center;
 }
 a:hover {
 	opacity:0.8;
 }
-/*EDDIG MI ÍRTUK*/
-
 /* Full-width input fields */
-
 
 /* Add a background color when the inputs get focus */
 input[type=text]:focus, input[type=password]:focus {
@@ -244,32 +240,8 @@ hr {
 	text-align: center;
 }
 #table_container{
-	display: block;
-	position: relative;
-	top: 20px;
+	text_align: center;
 }
-table{
-	text-align: center;
-	width: 100%;
-	table-layout: fixed;
-	white-space: nowrap;
-}
-table th{
-	padding-bottom: 20px;
-}
-table th:first-child{
-	width: 5%;
-}
-
-table td{
-	border-top: 2px solid orange;
-	padding: 10px 5px 10px 5px;
-	overflow: hidden;
-}
-table td:first-child::before{
-	counter-increment: section;
-  	content: counter(section);
- }
 #search_form{
 	display: flex;
 	width: 100%;
@@ -283,4 +255,41 @@ table td:first-child::before{
 	width: 60%;
 	background-color: rgba(255, 165, 0, 0.8);
 	border-radius: 10px;
+}
+#toplist_table {
+	counter-reset: rowNum;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: sans-serif, fantasy, serif;
+	width: 60%;
+	text-shadow: 0.5px 0.5px 0.5px black;
+}
+#toplist_table > thead {
+	background-color: orange;
+}
+th {
+	font-size: 18px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: center;
+	color: white;
+}
+#toplist_table > tbody > tr {
+	counter-increment: rowNum;
+}
+#toplist_table > tbody > tr:hover {
+	background-color: darkorange;
+	color: black;
+}
+#toplist_table tr td:first-child::before{
+	content: counter(rowNum);
+	min-width: 1em;
+	text-align: center;
+}
+#toplist_table tr td:first-child{
+	text-align: center;
+}
+td {
+	text-align: center;
+	padding: 8px;
 }
