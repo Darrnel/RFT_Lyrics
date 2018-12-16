@@ -13,7 +13,7 @@
     <div th:replace="fragments/header :: header"></div>
     <div id="profile_content">
         <h3 id="welcome_h1">Welcome:</h3>
-        <h3 id="welcome_h1" th:text="${userName}"></h3>
+        <h3 id="welcome_h1" th:text="${user.getUserName()}"></h3>
         <div id="profile_div">
             <img id="profile_picture" th:src="@{/images/default_picture.png}"/>
             <table id="user_table">
@@ -21,13 +21,13 @@
                     <td>
                         username:
                     </td>
-                    <td th:utext="${userName}">
+                    <td th:utext="${user.getUserName()}">
                         Basic Username
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Mi a rangom:
+                        My rang:
                     </td>
                     <td th:utext="${rang}">
                         Basic Rang
@@ -35,10 +35,18 @@
                 </tr>
                 <tr>
                     <td>
-                        emailcímem:
+                        Email address:
                     </td>
                     <td sec:authentication="name">
                         Basic@Example.com
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Uploaded lyrics':
+                    </td>
+                    <td th:text="${user.getLyricsCounter()}">
+                        34
                     </td>
                 </tr>
             </table>
@@ -46,6 +54,11 @@
         </div>
         <div id="user_activity">
             <h2 id="activity_title">My Activity</h2>
+            <div class="uploaded_lyrics">
+                <form method="post" th:action="@{/showMyLyrics}">
+                    <button type="submit" class="show_lyrics_button">Show them!</button>
+                </form>
+            </div>
             <table id="activity_table">
                 <thead>
                 <th>
@@ -59,9 +72,6 @@
                 </th>
                 <th>
                     Votes
-                </th>
-                <th>
-                    Link
                 </th>
                 </thead>
 
@@ -77,9 +87,6 @@
                         </td>
                         <td th:text="${lyrics.getVoteCounter()}">
                             vote for music
-                        </td>
-                        <td>
-                            <a th:href="@{/showlyrics}" style="color: blue;">show</a>
                         </td>
                 </tr>
 
