@@ -204,7 +204,7 @@ button:hover {
     height: 520px;
 }
 .modalReg{
-    height: 550px;
+    height: 650px;
 }
 
 /* Modal Content/Box */
@@ -249,7 +249,7 @@ hr {
 	font-weight: bold;
 }
 .succesReg{
-	color: #4CAF50;
+	color: green;
 	font-size: 40px;
 	text-align: center;
 }

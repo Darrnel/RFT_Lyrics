@@ -31,7 +31,7 @@ public class Lyrics {
 
     private String searchText;
 
-    private int voteCounter;
+    private int searchCounter;
 
     @ManyToOne
     private User user;
@@ -56,10 +56,6 @@ public class Lyrics {
         return lyricstext;
     }
 
-    public int getVoteCounter() {
-        return voteCounter;
-    }
-
     public void setId(long id) {
         this.id = id;
     }
@@ -78,10 +74,6 @@ public class Lyrics {
 
     public void setLyricstext(String lyrics) {
         this.lyricstext = lyrics;
-    }
-
-    public void setVoteCounter(int voteCounter) {
-        this.voteCounter = voteCounter;
     }
 
     public User getUser() {
@@ -108,6 +100,14 @@ public class Lyrics {
         this.searchText = searchText;
     }
 
+    public int getSearchCounter() {
+        return searchCounter;
+    }
+
+    public void setSearchCounter(int searchCounter) {
+        this.searchCounter = searchCounter;
+    }
+
     @Override
     public String toString() {
         return "Lyrics{" +
@@ -118,7 +118,7 @@ public class Lyrics {
                 ", lyricstext='" + lyricstext + '\'' +
                 ", activeRadio='" + activeRadio + '\'' +
                 ", searchText='" + searchText + '\'' +
-                ", voteCounter=" + voteCounter +
+                ", searchCounter=" + searchCounter +
                 ", user=" + user +
                 '}';
     }

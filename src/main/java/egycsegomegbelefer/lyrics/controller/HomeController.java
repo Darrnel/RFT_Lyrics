@@ -56,14 +56,22 @@ public class HomeController {
         String searchText = lyrics.getSearchText();
         List<Lyrics> showLyrics = lyricsService.findAuthor(searchText);
 
+
+
         if(activeRadioButton.equals("author")){
              showLyrics = lyricsService.findAuthor(searchText);
         }
         else if(activeRadioButton.equals("title")){
-            showLyrics = lyricsService.findTitle(searchText);        }
+            showLyrics = lyricsService.findTitle(searchText);
+        }
 
         else if(activeRadioButton.equals("lyrics")){
             showLyrics = lyricsService.findLyricstext(searchText);
+        }
+
+        for (Lyrics li:  showLyrics) {
+            li.setSearchCounter(li.getSearchCounter()+1);
+            lyricsService.saveLyrics(li);
         }
 
         modelAndView.addObject("lyricses", showLyrics);

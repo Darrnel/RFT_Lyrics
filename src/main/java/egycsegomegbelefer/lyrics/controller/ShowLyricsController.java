@@ -39,6 +39,7 @@ public class ShowLyricsController {
         modelAndView.addObject("album", showLyrics.getAlbum());
         modelAndView.addObject("title", showLyrics.getTitle());
         modelAndView.addObject("lyricstext", showLyrics.getLyricstext());
+
         modelAndView.setViewName("showlyrics");
         return modelAndView;
     }

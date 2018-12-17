@@ -41,7 +41,7 @@ public class RegistrationController {
         } else {
             user.setRang(Rang.UJONC);
             userService.saveUser(user);
-            modelAndView.addObject("successMessage", "User has been registered successfully");
+            modelAndView.addObject("successMessage", "Successful registration!");
             modelAndView.addObject("user", new User());
             modelAndView.setViewName("registration");
 

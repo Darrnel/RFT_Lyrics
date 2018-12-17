@@ -55,7 +55,7 @@ public class LyricsService{
     }
 
     public List<Lyrics> findPopularLyrics(){
-        return lyricsRepository.findByVoteCounter();
+        return lyricsRepository.findBySearchCounter();
     }
 
 }

@@ -63,7 +63,7 @@ public class LyricsUploadController {
             modelAndView.addObject("userName",user.getUserName());
 
             lyrics.setUser(user);
-            lyrics.setVoteCounter(0);
+            lyrics.setSearchCounter(0);
             user.setLyricsCounter(user.getLyricsCounter()+1);
 
             //ITT HATALMAS SZAKMAI SZÓCSATÁT VÍVOTT RICHÁRD ÉS VILMOS. - SZAKMAIFELJEGYZŐ MÁRTON ÚR

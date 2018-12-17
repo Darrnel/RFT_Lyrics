@@ -25,7 +25,7 @@
 						Title
 					</th>
 					<th>
-						Lyrics-counter
+						Popularity
 					</th>
 					</thead>
 					<tbody>
@@ -36,15 +36,18 @@
 						</td>
 						<td th:text="${lyrics.getTitle()}">title
 						</td>
-						<td th:text="${lyrics.getVoteCounter()}">
+						<td th:text="${lyrics.getSearchCounter()}">
 							counter
+						</td>
+					</tr>
+					<tr>
+						<td class="lyrics_td" colspan="4" th:utext="${lyrics.getLyricstext()}">
+							text
 						</td>
 					</tr>
 					</tbody>
 				</table>
-				<p th:utext="${lyrics.getLyricstext()}">
-					text
-				</p>
+
 				</div>
 			</div>
 		</div>

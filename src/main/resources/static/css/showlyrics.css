@@ -147,7 +147,7 @@ a:hover {
 .lyrics_container{
 	text-align: center;
 	display: block;
-	width: 500px;
+	max-width: 700px;
 	margin: 100px auto 10px auto;
 	position: relative;
 	top:30%;
@@ -177,6 +177,7 @@ a:hover {
 	margin: 40px auto 40px auto;
 }
 #show_table {
+	table-layout: fixed;
 	counter-reset: rowNum;
 	margin-left: auto;
 	margin-right: auto;
@@ -193,19 +194,43 @@ th {
 	padding-bottom: 12px;
 	text-align: center;
 	color: white;
+	border: 1px solid black;
 }
-#show_table > tbody > tr:hover {
-	background-color: darkorange;
-	color: black;
-}
-#show_table tr td{
-	text-align: center;
-}
+
 td {
 	text-align: center;
 	padding: 8px;
+	border: 1px solid black;
+	overflow:hidden;
+
 }
 #lyrics_container p{
 	text-align:center;
 	margin-bottom: 50px;
+}
+.lyrics_td{
+	text-align: left;
+	padding-left: 75px;
+}
+.likebutton, .dislikebutton{
+	padding: 0px 0px 0px 0px;
+	width: 80px;
+	height: 100%;
+	border-radius: 5px;
+	font-weight: bold;
+}
+.like_td{
+	padding: 5px auto 5px auto;
+	border-radius: 5px;
+	border: 0px;
+	height: 40px;
+}
+.likebutton{
+	background-color: greenyellow;
+}
+.dislikebutton{
+	background-color: orangered;
+}
+.voting{
+	height: 100%;
 }
